@@ -1,0 +1,33 @@
+{
+  "name": "march-tg-bot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/index.ts",
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "start": "npx tsx src/index",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/damarrus/march.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/damarrus/march/issues"
+  },
+  "homepage": "https://github.com/damarrus/march#readme",
+  "dependencies": {
+    "node-telegram-bot-api": "^0.59.0",
+    "string-template": "^1.0.0",
+    "ts-json-db": "^2.0.5",
+    "ts-node": "^10.9.1"
+  },
+  "devDependencies": {
+    "@types/node-telegram-bot-api": "^0.57.5",
+    "@types/string-template": "^1.0.6",
+    "typescript": "^4.8.4"
+  }
+}

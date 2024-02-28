@@ -30,7 +30,8 @@ export class Dialog {
   }
 
   handle(user: User, data: string): Dialog {
-    console.log(user.dialog.name, data)
+    console.log(user.dialog.name, data);
+    user.addHistory(user.dialog.name, data);
 
     let phrase: Phrase | InputPhrase;
 

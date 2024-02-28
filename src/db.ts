@@ -1,9 +1,8 @@
 import * as DB from "ts-json-db";
 
 export interface History {
-    id: number,
-    question: string,
-    answer: string,
+    dialog: string,
+    phrase: string,
     date: Date,
 }
 

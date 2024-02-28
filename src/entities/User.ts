@@ -141,13 +141,10 @@ export class User {
     
   }
 
-  private getLastHistory() {
-    return this.dbUser.history[this.dbUser.history.length - 1]
-  }
-
+  public addHistory(dialog: string, phrase: string) { this.dbUser.history.push({ dialog, phrase, date: new Date() }); db.save()}
   public getId() { return this.dbUser.id; }
   public getName() { return this.dbUser.name; }
   public getPrevMessageId() { return this.prevMessageId; }
-  public clear() { this.dbUser.history = [{ id: 1, question: "start", answer: "start", date: new Date() }]; }
+  public clear() { this.dbUser.history = [{ dialog: "registration", phrase: "registration", date: new Date() }]; }
 
 }

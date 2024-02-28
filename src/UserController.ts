@@ -17,7 +17,7 @@ export class UserController {
     const dbUser = {
       id: msg.chat.id,
       name: [msg.chat.first_name, msg.chat.last_name, msg.chat.username].join(' '),
-      history: [{ id: 1, question: "start", answer: "start", date: new Date() }],
+      history: [{ dialog: "reg", phrase: "reg", date: new Date() }],
       tags: [{ name: "dialog", value: "start" }]
     }
     db.push('/users', dbUser);

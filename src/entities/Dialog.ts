@@ -3,67 +3,81 @@ import { Phrase } from "./Phrase";
 import { User } from "./User";
 import { dialogs } from "../dialogs";
 import template from 'string-template';
+import { InputPhrase } from "./InputPhrase";
+import { ACTION_MESSAGE, BUTTON_ICON, BUTTON_TEXT, DIALOG_IMAGE, DIALOG_MESSAGE } from "../config";
 
 export class Dialog {
   public name: string;
   public textArray: string[];
-  public rows: Phrase[] = [];
+  public phrases: Phrase[] = [];
+  public inputPhrase: InputPhrase = null;
 
-  constructor(name: string, text: string, rows: Phrase[]);
-  constructor(name: string, text: string[], rows: Phrase[]);
-  constructor(name: string, text: string | string[], rows: Phrase[]) {
+  constructor(name: string, text: string, phrases: Phrase[]);
+  constructor(name: string, text: string[], phrase: Phrase[]);
+  constructor(name: string, text: string, phrase: Phrase);
+  constructor(name: string, text: string[], phrase: Phrase);
+  constructor(name: string, text: string, inputPhrase: InputPhrase);
+  constructor(name: string, text: string[], inputPhrase: InputPhrase);
+  constructor(name: string, text: string | string[], phrases: Phrase[] | Phrase | InputPhrase) 
+  {
     this.name = name;
     this.textArray = typeof text === "string" ? [text] : text;
-    this.rows = rows;
+    if (phrases instanceof InputPhrase) {
+      this.inputPhrase = phrases;
+    } else {
+      this.phrases = phrases instanceof Phrase ? [phrases] : phrases;
+    }
   }
 
   handle(user: User, data: string): Dialog {
     console.log(user.dialog.name, data)
 
-    if (user.dialog === dialogs[0] && data !== "startGame") {
-      this.sendDialogMessage(user)
-      return this;
+    let phrase: Phrase | InputPhrase;
+
+    if (this.inputPhrase) {
+      phrase = this.inputPhrase;
+      phrase.activate(user, data);
+    } else {
+      phrase = this.phrases.find(r => r.buttonData === data);
+      if (phrase instanceof Phrase === false) {
+        console.log(`Phrase not found`)
+        this.sendDialogMessage(user)
+        return this;
+      }
+
+      user.clearMessageParams();
+      phrase.activate(user);
+      user.setTag(BUTTON_TEXT, phrase.buttonText)
+      user.setTag(BUTTON_ICON, phrase.buttonIcon)
     }
 
-    const row = this.rows.find(r => r.buttonData === data);
-    if (!row) {
-      // let text = "Произошла ошибка \n\n" + this.getText(user)
-      this.sendDialogMessage(user)
-      return this;
-    }
-
-    user.clearMessageParams();
-    row.activate(user);
-    user.setTag("buttonText", row.buttonText)
-    user.setTag("buttonIcon", row.buttonIcon)
-    const nextDialog = dialogs.find(dialog => dialog.name === row.nextDialog);
-    if (nextDialog.name !== user.getTag('dialog')) {
-      user.setTag('dialog', nextDialog.name)
-    }
     
-    nextDialog.sendDialogMessage(user)
+    const nextDialog = dialogs.find(dialog => dialog.name === phrase.nextDialog);
+    if (nextDialog.name !== user.getTag('dialog')) user.setTag('dialog', nextDialog.name)
+    
+    nextDialog.sendDialogMessage(user, !!this.inputPhrase)
 
     return nextDialog
   }
 
-  sendDialogMessage(user: User) {
-    const imageName = user.getTag('dialogImage')
+  sendDialogMessage(user: User, isInput: boolean = false) {
+    const imageName = user.getTag(DIALOG_IMAGE)
     const imagePath = imageName ? `${process.cwd()}/images/${imageName}` : ""
 
-    user.sendMessage(this.getText(user), this.getButtons(user), true, true, imagePath);
+    user.sendMessage(this.getText(user), this.getButtons(user), !isInput, true, imagePath);
   }
 
   getText(user: User) {
     console.log(user.getTags())
     let text = "";
-    const buttonText = user.getTag("buttonText");
-    const buttonIcon = user.getTag("buttonIcon");
+    const buttonText = user.getTag(BUTTON_TEXT);
+    const buttonIcon = user.getTag(BUTTON_ICON);
     if (buttonText && buttonIcon) {
       text += `${buttonIcon} <u>${buttonText}</u>\n\n`
     }
 
-    const dialogMessage = user.getTag("dialogMessage");
-    const actionMessage = user.getTag("actionMessage");
+    const dialogMessage = user.getTag(DIALOG_MESSAGE);
+    const actionMessage = user.getTag(ACTION_MESSAGE);
     if (actionMessage) text += actionMessage + "\n \n"
 
     text += dialogMessage ? dialogMessage : this.textArray.join("\n\n");
@@ -72,7 +86,7 @@ export class Dialog {
   }
 
   getButtons(user: User): TelegramBot.InlineKeyboardMarkup {
-    const buttons = this.rows
+    const buttons = this.phrases
       .filter(row => row.isShow(user))
       .map(row => ([{ text: row.buttonIcon + " " + template(row.buttonText, user.tagsObject), callback_data: row.buttonData }]))
 

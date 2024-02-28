@@ -5,6 +5,7 @@ import { Dialog } from "./Dialog";
 import { dialogs } from "../dialogs";
 import * as fs from 'fs';
 import * as path from 'path';
+import { ACTION_MESSAGE, BUTTON_ICON, BUTTON_TEXT, DIALOG_IMAGE, DIALOG_MESSAGE } from "../config";
 
 export class User {
   private dbUser: DBUser
@@ -68,11 +69,11 @@ export class User {
 
   public clearMessageParams() {
     this.dbUser.tags = this.dbUser.tags.filter(tag => 
-      tag.name !== "actionMessage" && 
-      tag.name !== "dialogMessage" && 
-      tag.name !== "dialogImage" &&
-      tag.name !== "buttonText" && 
-      tag.name !== "buttonIcon" 
+      tag.name !== ACTION_MESSAGE && 
+      tag.name !== DIALOG_MESSAGE && 
+      tag.name !== DIALOG_IMAGE &&
+      tag.name !== BUTTON_TEXT && 
+      tag.name !== BUTTON_ICON 
     )
     db.save()
   }

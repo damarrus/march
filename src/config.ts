@@ -1,0 +1,10 @@
+// RESERVED TAGS
+export const ACTION_MESSAGE = 'ACTION_MESSAGE';
+export const DIALOG_MESSAGE = 'DIALOG_MESSAGE';
+export const DIALOG_IMAGE = 'DIALOG_IMAGE';
+export const BUTTON_TEXT = 'BUTTON_TEXT';
+export const BUTTON_ICON = 'BUTTON_ICON';
+export const CLEAR = 'CLEAR'
+
+// INPUT PHRASE TYPE
+export const INPUT_PHRASE = 'INPUT_PHRASE'

@@ -131,7 +131,7 @@ export const tavernDialog = new Dialog(
       [],
       [ 
         new Action([ 
-            new Effect("tavern_steak_prize_effect", "=", 1),
+            new Effect("tavern_steal_prize_effect", "=", 1),
         ]),
       ],
       "babkaDialog",

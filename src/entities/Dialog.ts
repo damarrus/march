@@ -32,8 +32,9 @@ export class Dialog {
   }
 
   handle(user: User, data: string): Dialog {
-    console.log(user.dialog.name, data);
-    user.addHistory(user.dialog.name, data);
+    const dialog = user.getCurrentDialog();
+    console.log(dialog.name, data);
+    user.addHistory(dialog.name, data);
 
     let phrase: Phrase | InputPhrase;
 

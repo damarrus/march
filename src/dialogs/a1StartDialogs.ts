@@ -1,4 +1,4 @@
-import { ACTION_MESSAGE, DIALOG_IMAGE, DIALOG_MESSAGE } from "../config";
+import { ACTION_MESSAGE, CLEAR, DIALOG_IMAGE, DIALOG_MESSAGE } from "../config";
 import { Action } from "../entities/Action";
 import { Dialog } from "../entities/Dialog";
 import { Effect } from "../entities/Effect";
@@ -6,9 +6,14 @@ import { Phrase } from "../entities/Phrase";
 import { ICON_CLERIC, ICON_DECLINE, ICON_DICE, ICON_MAGE, ICON_ROGUE, ICON_START, ICON_WALKING, ICON_WARRIOR } from "../icons";
 
 export const startDialog = new Dialog(
-  "startDialog", "Новая игра", [
+  "start", [
+    "Список команд для отладки (просто вводим их в чат в любой момент):",
+    "clear - очистить все данные и начать игру заново",
+    "save - сохраняет текущий прогресс. Повторный вызов перезапишет сохранение",
+    "load - загружает сохраненный прогресс",
+  ], [
     new Phrase(
-      "Начать игру. В любой момент можешь ввести clear в чат и игра начнется заново.", "start", ICON_START, 
+      "Начать игру.", "start", ICON_START, 
       [],
       [
         new Action([ 
@@ -44,7 +49,7 @@ export const setClassDialog = new Dialog(
     "applySetClass",
   ),
   new Phrase(
-    "Божественный символ и булаву и жопа хуй пизда", "cleric", ICON_CLERIC,
+    "Божественный символ и булаву", "cleric", ICON_CLERIC,
     [],
     [ 
       new Action([ 
@@ -100,7 +105,7 @@ export const applySetClassDialog = new Dialog(
         new Effect(DIALOG_IMAGE, "=", "tavern2"),
       ]),
     ],
-    "toViladge",
+    "toVillage",
   ),
   new Phrase(
     "Назад", "no", ICON_DECLINE,
@@ -117,8 +122,8 @@ export const applySetClassDialog = new Dialog(
   ),
 ])
 
-export const viladgeDialog = new Dialog(
-  "toViladge", 
+export const villageDialog = new Dialog(
+  "toVillage", 
   [
     "К концу дня ты достигаешь деревни. Тебя встречают красивые, аккуратные домики, украшенные лентами и цветами заборчики и фонари главной улицы. Но усталость берет свое и ты стремишься в таверну “Арарат”.",
   ], 
@@ -134,3 +139,18 @@ export const viladgeDialog = new Dialog(
     "toTavern",
   )    
 ])
+
+export const gameOverDialog = new Dialog("gameover", "Продолжение следует...", 
+    [
+      new Phrase(
+        "Начать заново", "again", ICON_START,
+        [],
+        [ 
+          new Action([ 
+            new Effect(CLEAR, "=", true),
+          ]),
+        ],
+        "start",
+      )
+    ]
+  )

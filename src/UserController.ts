@@ -20,7 +20,8 @@ export class UserController {
         id: msg.chat.id,
         name: [msg.chat.first_name, msg.chat.last_name, msg.chat.username].join(' '),
         history: [{ dialog: "reg", phrase: "reg", date: new Date() }],
-        tags: [{ name: "dialog", value: "start" }]
+        tags: [{ name: "dialog", value: "start" }],
+        save: [{ name: "dialog", value: "start" }]
       }
       db.push('/users', dbUser);
       db.save();

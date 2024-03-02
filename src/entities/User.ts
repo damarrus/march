@@ -12,19 +12,24 @@ export class User {
   private prevMessageId: number = 0;
   public isStart: boolean = true;
   public isFirstMessage: boolean = true;
-  public dialog: Dialog;
 
   public tagsObject: { [key: string]: string | boolean | number } = {}
 
   constructor(dbUser: DBUser) {
     this.dbUser = dbUser;
-    this.dialog = dialogs.find((dialog) => dialog.name === this.getTag('dialog'))
-    if (!this.dialog) {
-      this.clearTags();
-      this.dialog = dialogs[0]
-      this.setTag('dialog', this.dialog.name)
-    }
+    this.getCurrentDialog()
     this.updateTagsObject()
+  }
+
+  public getCurrentDialog(): Dialog {
+    let dialog = dialogs.find((dialog) => dialog.name === this.getTag('dialog'))
+    if (!dialog) {
+      this.clearTags();
+      dialog = dialogs[0]
+      this.setTag('dialog', dialog.name)
+      this.updateTagsObject()
+    }
+    return dialog;
   }
 
   public clearTags() {
@@ -86,9 +91,8 @@ export class User {
       data = ""
     }
 
-    console.log(this.getName(), this.dialog.name, data);
-
-    this.dialog = this.dialog.handle(this, data);
+    console.log(this.getName(), this.getCurrentDialog().name, data);
+    this.getCurrentDialog().handle(this, data);
   }
 
   private getDataFromMessage(msg: TelegramBot.Message | TelegramBot.CallbackQuery) : string {
@@ -139,6 +143,17 @@ export class User {
       });
     }
     
+  }
+
+  public saveCommand() {
+    this.dbUser.save = this.dbUser.tags.map(obj => Object.assign({}, obj));
+    db.save()
+  }
+
+  public loadCommand() {
+    this.dbUser.tags = this.dbUser.save.map(obj => Object.assign({}, obj));
+    db.save()
+    this.updateTagsObject()
   }
 
   public addHistory(dialog: string, phrase: string) { this.dbUser.history.push({ dialog, phrase, date: new Date() }); db.save()}

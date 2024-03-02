@@ -4,5 +4,5 @@ import { Dialog } from "../entities/Dialog";
 import { Effect } from "../entities/Effect";
 import { Phrase } from "../entities/Phrase";
 
-export const babkaDialog = new Dialog("","",[])
+export const babkaDialog = new Dialog("babkaDialog","В разработке",[ new Phrase("Пропустить", "skip", "", [],[],"sleep")])
  

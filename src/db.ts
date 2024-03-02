@@ -15,13 +15,8 @@ export interface DBUser {
     id: number,
     name: string,
     history: History[],
-    tags: DBTag[]
-}
-
-export interface DBSave {
-    userId: number,
-    name: string,
-    tags: DBTag[]
+    tags: DBTag[],
+    save: DBTag[]
 }
 
 interface ContentDef extends DB.ContentBase {
@@ -30,10 +25,6 @@ interface ContentDef extends DB.ContentBase {
             entryType: "array",
             valueType: DBUser
         },
-        '/saves': {
-            entryType: "array",
-            valueType: DBSave
-        }
     }
 }
 

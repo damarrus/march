@@ -91,7 +91,7 @@ export const applySetClassDialog = new Dialog(
     "Да", "yes", ICON_DICE,
     [],
     [],
-    "setDish",
+    "toTavern",
   ),
   new Phrase(
     "Назад", "no", ICON_DECLINE,

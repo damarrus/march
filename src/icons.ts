@@ -10,7 +10,7 @@ export const ICON_SLEEP = '💤';
 export const ICON_STRENGTH = '💪🏾';
 export const ICON_INTELLECT = '🧠';
 export const ICON_STEAL = '🥷';
-
+export const ICON_SCROLL = '📜';
 
 export const ICON_WARRIOR = '🗡'
 export const ICON_CLERIC = '🕯'

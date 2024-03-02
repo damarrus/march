@@ -6,6 +6,7 @@ export const ICON_DICE = '🎲';
 export const ICON_GOLD = '💰';
 export const ICON_ACTION = '🏃‍♀️';
 export const ICON_DECLINE = '❌';
+export const ICON_SCROLL = '📜';
 
 export const ICON_WARRIOR = '🗡'
 export const ICON_CLERIC = '🕯'

@@ -43,7 +43,7 @@ export const gnomNextDialog = new Dialog(
     "Поняв, что спорить с дураком бесполезно, жители начинают разбредаться по уже приготовленным палаткам с конкурсами, где можно заработать призовые жетоны. Собравший больше всего жетонов, как пояснил староста, и будет объявлен победителем праздника.",
   ],
   [
-    new Phrase("Продолжить", "continue", ICON_START, [], [ new Action([ new Effect("contestTokens", "=", 0)]) ], "contestChoise")
+    new Phrase("Продолжить", "continue", ICON_START, [], [], "contestChoise")
   ]
 )
 

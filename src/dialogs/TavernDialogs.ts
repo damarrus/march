@@ -3,7 +3,7 @@ import { Action } from "../entities/Action";
 import { Dialog } from "../entities/Dialog";
 import { Effect } from "../entities/Effect";
 import { Phrase } from "../entities/Phrase";
-import { ICON_SCROLL, ICON_BEER, ICON_CHEESE, ICON_COOKIE, ICON_CUCUMBER, ICON_GLASS, ICON_PORK, ICON_VINE } from "../icons";
+import { ICON_WALKING, ICON_SUNRISE, ICON_SCROLL, ICON_BEER, ICON_CHEESE, ICON_COOKIE, ICON_CUCUMBER, ICON_GLASS, ICON_PORK, ICON_VINE, ICON_SAKE, ICON_TADA, ICON_DANCE, ICON_PARTY, ICON_MONEYBAG, ICON_HOUSE } from "../icons";
 
 export const tavernDialog = new Dialog(
     "toTavern", 
@@ -28,7 +28,7 @@ export const tavernDialog = new Dialog(
     ], 
     [
     new Phrase(
-      "Вино и сыр:", "vine_and_cheese", ICON_VINE + ICON_CHEESE,
+      "Вино и сыр", "vine_and_cheese", ICON_VINE + ICON_CHEESE,
       [],
       [ 
         new Action([ 
@@ -40,7 +40,7 @@ export const tavernDialog = new Dialog(
       "toYarik",
     ),
     new Phrase(
-      "Пиво и жареная свинина:", "beer_and_pork", ICON_BEER + ICON_PORK,
+      "Пиво и жареная свинина", "beer_and_pork", ICON_BEER + ICON_PORK,
       [],
       [ 
         new Action([ 
@@ -52,7 +52,7 @@ export const tavernDialog = new Dialog(
       "toYarik",
     ),
     new Phrase(
-      "Водка с огурчиками:", "vodka_and_cucumber", ICON_GLASS + ICON_CUCUMBER,
+      "Водка с огурчиками", "vodka_and_cucumber", ICON_SAKE + ICON_CUCUMBER,
       [],
       [ 
         new Action([ 
@@ -64,7 +64,7 @@ export const tavernDialog = new Dialog(
       "toYarik",
     ),
     new Phrase(
-      "Молоко с печеньем:", "milk_and_cookie", ICON_GLASS + ICON_COOKIE,
+      "Молоко с печеньем", "milk_and_cookie", ICON_GLASS + ICON_COOKIE,
       [],
       [ 
         new Action([ 
@@ -80,13 +80,32 @@ export const tavernDialog = new Dialog(
     "toYarik", 
     [
       "Употребив еду и напитки по назначению, ты интересуешься у сидящего рядом свинопаса представившегося Йариком, почему деревня так нарядно выглядит. Он, вдоволь поковырявшись в носу, поведал тебе, что завтра они будут отмечать праздник Триединой - покровительницы всех женщин (молодых, зрелых и пожилых).",
+      "Ожидается пир с веселыми танцами и интересными конкурсами, за которые можно даже получить денежный приз. Ты решаешь:"
     ], 
     [
     new Phrase(
-        "Да", "yes", ICON_BEER,
-        [],
-        [],
-        "setClass",
-    ),  
+      "Остаться на праздник и поучаствовать в конкурсах", "party", ICON_PARTY + ICON_DANCE,
+      [],
+      [],
+      "babkaDialog",
+    ),
+    new Phrase(
+      "Пойти своей дорогой, как только рассветет", "away", ICON_WALKING + ICON_SUNRISE,
+      [],
+      [],
+      "babkaDialog",
+    ),
+    new Phrase(
+      "Украсть призовой фонд", "steal_prize", ICON_MONEYBAG,
+      [],
+      [],
+      "babkaDialog",
+    ),
+    new Phrase(
+      "Навсегда поселиться здесь", "settle", ICON_HOUSE,
+      [],
+      [],
+      "babkaDialog",
+    )
   ])
  

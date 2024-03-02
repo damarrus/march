@@ -14,8 +14,8 @@ import { babkaDialog } from "./dialogs/BabkaDialogs";
 export const dialogs = [
   setClassDialog,
   applySetClassDialog,
-  tavernDialog,
-  babkaDialog
+  // tavernDialog,
+  // babkaDialog
 ]
 
 const dialogsExample = [

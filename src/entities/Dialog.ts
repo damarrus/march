@@ -5,6 +5,8 @@ import { dialogs } from "../dialogs";
 import template from 'string-template';
 import { InputPhrase } from "./InputPhrase";
 import { ACTION_MESSAGE, BUTTON_ICON, BUTTON_TEXT, DIALOG_IMAGE, DIALOG_MESSAGE } from "../config";
+import * as fs from 'fs';
+
 
 export class Dialog {
   public name: string;
@@ -63,7 +65,18 @@ export class Dialog {
 
   sendDialogMessage(user: User, isInput: boolean = false) {
     const imageName = user.getTag(DIALOG_IMAGE)
-    const imagePath = imageName ? `${process.cwd()}/images/${imageName}` : ""
+    let imagePath = imageName ? `${process.cwd()}/images/${imageName}` : ""
+    if (imagePath) {
+      if (fs.existsSync(imagePath + ".jpg")) {
+        imagePath = imagePath + ".jpg";
+      } else if (fs.existsSync(imagePath + ".jpeg")) {
+        imagePath = imagePath + ".jpeg";
+      } else if (fs.existsSync(imagePath + ".png")) {
+        imagePath = imagePath + ".png";
+      } else {
+        imagePath = ""
+      }
+    }
 
     user.sendMessage(this.getText(user), this.getButtons(user), !isInput, true, imagePath);
   }

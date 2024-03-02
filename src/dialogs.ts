@@ -7,13 +7,30 @@ import { Effect } from "./entities/Effect";
 import { ACTION_MESSAGE, CLEAR, DIALOG_IMAGE, DIALOG_MESSAGE, INPUT_PHRASE } from "./config";
 import { InputPhrase } from "./entities/InputPhrase";
 import { InputEffect } from "./entities/InputEffect";
-import { applySetClassDialog, setClassDialog } from "./dialogs/StartDialogs";
-import { tavernDialog } from "./dialogs/TavernDialogs";
-import { babkaDialog } from "./dialogs/BabkaDialogs";
+import { applySetClassDialog, setClassDialog, startDialog } from "./dialogs/StartDialogs";
+import { setDishDialog, tavernDialog, yarikDialog } from "./dialogs/TavernDialogs";
+import { gnomDialog, gnomNextDialog, nextDayDialog, sleepDialog } from "./dialogs/HolidayDialogs";
+import { contestChoiseDialog, intellectContestDialog, intellectContestInputDialog, intellectContestVariantsDialog, strengthContestDialog } from "./dialogs/ContestDialogs";
 
 export const dialogs = [
+  startDialog,
   setClassDialog,
   applySetClassDialog,
+
+  tavernDialog,
+  setDishDialog,
+  yarikDialog,
+  
+  sleepDialog,
+  nextDayDialog,
+  gnomDialog,
+  gnomNextDialog,
+  contestChoiseDialog,
+  strengthContestDialog,
+  intellectContestDialog,
+  intellectContestInputDialog,
+  intellectContestVariantsDialog
+
   // tavernDialog,
   // babkaDialog
 ]

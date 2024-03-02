@@ -8,10 +8,15 @@ import { ICON_CLERIC, ICON_DECLINE, ICON_DICE, ICON_MAGE, ICON_ROGUE, ICON_START
 export const startDialog = new Dialog(
   "startDialog", "Новая игра", [
     new Phrase(
-      "Начать игру", "start", ICON_START, 
+      "Начать игру. В любой момент можешь ввести clear в чат и игра начнется заново.", "start", ICON_START, 
       [],
       [
-        new Action([ new Effect("alcohol_effect", "=", 0) ])
+        new Action([ 
+          new Effect("alcohol_effect", "=", 0),
+          new Effect("contestTokens", "=", 0),
+          new Effect("doneContests", "=", 0),
+          new Effect("gold", "=", 0),
+        ])
       ], 
       "setClass"
     )

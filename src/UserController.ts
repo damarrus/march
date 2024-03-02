@@ -14,14 +14,17 @@ export class UserController {
   }
 
   static createUser(msg: TelegramBot.Message) {
-    const dbUser = {
-      id: msg.chat.id,
-      name: [msg.chat.first_name, msg.chat.last_name, msg.chat.username].join(' '),
-      history: [{ dialog: "reg", phrase: "reg", date: new Date() }],
-      tags: [{ name: "dialog", value: "start" }]
+    let dbUser = (db.get('/users') ?? []).find(dbu => dbu.id === msg.chat.id)
+    if (!dbUser) {
+      dbUser = {
+        id: msg.chat.id,
+        name: [msg.chat.first_name, msg.chat.last_name, msg.chat.username].join(' '),
+        history: [{ dialog: "reg", phrase: "reg", date: new Date() }],
+        tags: [{ name: "dialog", value: "start" }]
+      }
+      db.push('/users', dbUser);
+      db.save();
     }
-    db.push('/users', dbUser);
-    db.save();
     
     const user = new User(dbUser);
     this.users.push(user);

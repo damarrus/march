@@ -3,7 +3,7 @@ import { Action } from "../entities/Action";
 import { Dialog } from "../entities/Dialog";
 import { Effect } from "../entities/Effect";
 import { Phrase } from "../entities/Phrase";
-import { ICON_CHEESE, ICON_CUCUMBER, ICON_PORK, ICON_VINE } from "../icons";
+import { ICON_SCROLL, ICON_BEER, ICON_CHEESE, ICON_COOKIE, ICON_CUCUMBER, ICON_GLASS, ICON_PORK, ICON_VINE } from "../icons";
 
 export const tavernDialog = new Dialog(
     "toTavern", 
@@ -17,11 +17,11 @@ export const tavernDialog = new Dialog(
       "Меню", "menu", ICON_SCROLL,
       [],
       [],
-      "applySetDish",
+      "setDish",
     )    
   ])
 
-  export const dishDialog = new Dialog(
+  export const setDishDialog = new Dialog(
     "setDish", 
     [
       "В меню ты видишь следующие варианты:",
@@ -37,7 +37,7 @@ export const tavernDialog = new Dialog(
           new Effect("alcohol_effect", "+=", 1),
         ]),
       ],
-      "applySetClass",
+      "toYarik",
     ),
     new Phrase(
       "Пиво и жареная свинина:", "beer_and_pork", ICON_BEER + ICON_PORK,
@@ -49,10 +49,10 @@ export const tavernDialog = new Dialog(
             new Effect("alcohol_effect", "+=", 1),
           ]),
       ],
-      "applySetClass",
+      "toYarik",
     ),
     new Phrase(
-      "Водка с огурчиками:", "vodka_and_cucumber", ICON_VODKA + ICON_CUCUMBER,
+      "Водка с огурчиками:", "vodka_and_cucumber", ICON_GLASS + ICON_CUCUMBER,
       [],
       [ 
         new Action([ 
@@ -61,8 +61,32 @@ export const tavernDialog = new Dialog(
             new Effect("alcohol_effect", "+=", 2),
           ]),
       ],
-      "applySetClass",
-    )
-    
+      "toYarik",
+    ),
+    new Phrase(
+      "Молоко с печеньем:", "milk_and_cookie", ICON_GLASS + ICON_COOKIE,
+      [],
+      [ 
+        new Action([ 
+            new Effect(ACTION_MESSAGE, "=", `А можно ли мне молочка с печеньицем?`),
+            new Effect(DIALOG_IMAGE, "=", ""),
+          ]),
+      ],
+      "toYarik",
+    )    
+  ])
+
+  export const yarikDialog = new Dialog(
+    "toYarik", 
+    [
+      "Употребив еду и напитки по назначению, ты интересуешься у сидящего рядом свинопаса представившегося Йариком, почему деревня так нарядно выглядит. Он, вдоволь поковырявшись в носу, поведал тебе, что завтра они будут отмечать праздник Триединой - покровительницы всех женщин (молодых, зрелых и пожилых).",
+    ], 
+    [
+    new Phrase(
+        "Да", "yes", ICON_BEER,
+        [],
+        [],
+        "setClass",
+    ),  
   ])
  

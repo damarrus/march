@@ -3,7 +3,7 @@ import { Action } from "../entities/Action";
 import { Dialog } from "../entities/Dialog";
 import { Effect } from "../entities/Effect";
 import { Phrase } from "../entities/Phrase";
-import { ICON_CLERIC, ICON_DECLINE, ICON_DICE, ICON_MAGE, ICON_ROGUE, ICON_START, ICON_WARRIOR } from "../icons";
+import { ICON_CLERIC, ICON_DECLINE, ICON_DICE, ICON_MAGE, ICON_ROGUE, ICON_START, ICON_WALKING, ICON_WARRIOR } from "../icons";
 
 export const startDialog = new Dialog(
   "startDialog", "Новая игра", [
@@ -90,8 +90,12 @@ export const applySetClassDialog = new Dialog(
   new Phrase(
     "Да", "yes", ICON_DICE,
     [],
-    [],
-    "toTavern",
+    [
+      new Action([
+        new Effect(DIALOG_IMAGE, "=", "tavern2"),
+      ]),
+    ],
+    "toViladge",
   ),
   new Phrase(
     "Назад", "no", ICON_DECLINE,
@@ -106,4 +110,22 @@ export const applySetClassDialog = new Dialog(
     ],
     "setClass",
   ),
+])
+
+export const viladgeDialog = new Dialog(
+  "toViladge", 
+  [
+    "К концу дня ты достигаешь деревни. Тебя встречают красивые, аккуратные домики, украшенные лентами и цветами заборчики и фонари главной улицы. Но усталость берет свое и ты стремишься в таверну “Арарат”.",
+  ], 
+  [
+  new Phrase(
+    "Зайти в таверну", "toTavern", ICON_WALKING,
+    [],
+    [
+      new Action([
+        new Effect(DIALOG_IMAGE, "=", "tavern"),
+      ]),
+    ],
+    "toTavern",
+  )    
 ])

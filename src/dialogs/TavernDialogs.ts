@@ -3,7 +3,7 @@ import { Action } from "../entities/Action";
 import { Dialog } from "../entities/Dialog";
 import { Effect } from "../entities/Effect";
 import { Phrase } from "../entities/Phrase";
-import { ICON_WALKING, ICON_SUNRISE, ICON_SCROLL, ICON_BEER, ICON_CHEESE, ICON_COOKIE, ICON_CUCUMBER, ICON_GLASS, ICON_PORK, ICON_VINE, ICON_SAKE, ICON_TADA, ICON_DANCE, ICON_PARTY, ICON_MONEYBAG, ICON_HOUSE } from "../icons";
+import { ICON_WALKING, ICON_SUNRISE, ICON_SCROLL, ICON_BEER, ICON_CHEESE, ICON_COOKIE, ICON_CUCUMBER, ICON_GLASS, ICON_PORK, ICON_WINE, ICON_SAKE, ICON_TADA, ICON_DANCE, ICON_PARTY, ICON_MONEYBAG, ICON_HOUSE } from "../icons";
 
 export const tavernDialog = new Dialog(
     "toTavern", 
@@ -28,13 +28,14 @@ export const tavernDialog = new Dialog(
     ], 
     [
     new Phrase(
-      "Вино и сыр", "vine_and_cheese", ICON_VINE + ICON_CHEESE,
+      "Вино и сыр", "wine_and_cheese", ICON_WINE + ICON_CHEESE,
       [],
       [ 
         new Action([ 
           new Effect(ACTION_MESSAGE, "=", `Винишка и сырную тарелку, пожалуйста;`),
           new Effect(DIALOG_IMAGE, "=", ""),
           new Effect("alcohol_effect", "+=", 1),
+          new Effect(DIALOG_IMAGE, "=", "wine"),
         ]),
       ],
       "toYarik",
@@ -47,6 +48,7 @@ export const tavernDialog = new Dialog(
             new Effect(ACTION_MESSAGE, "=", `Пинту пива и жареного порося с яблоком для начала;`),
             new Effect(DIALOG_IMAGE, "=", ""),
             new Effect("alcohol_effect", "+=", 1),
+            new Effect(DIALOG_IMAGE, "=", "beer"),
           ]),
       ],
       "toYarik",
@@ -59,6 +61,7 @@ export const tavernDialog = new Dialog(
             new Effect(ACTION_MESSAGE, "=", `Водочки мне холодненькой, чтоб прям из погребка, да соленых огурчиков на закусь;`),
             new Effect(DIALOG_IMAGE, "=", ""),
             new Effect("alcohol_effect", "+=", 2),
+            new Effect(DIALOG_IMAGE, "=", "vodka"),
           ]),
       ],
       "toYarik",
@@ -70,6 +73,7 @@ export const tavernDialog = new Dialog(
         new Action([ 
             new Effect(ACTION_MESSAGE, "=", `А можно ли мне молочка с печеньицем?`),
             new Effect(DIALOG_IMAGE, "=", ""),
+            new Effect(DIALOG_IMAGE, "=", "milk"),
           ]),
       ],
       "toYarik",

@@ -3,7 +3,19 @@ import { Action } from "../entities/Action";
 import { Dialog } from "../entities/Dialog";
 import { Effect } from "../entities/Effect";
 import { Phrase } from "../entities/Phrase";
-import { ICON_CLERIC, ICON_DECLINE, ICON_DICE, ICON_MAGE, ICON_ROGUE, ICON_WARRIOR } from "../icons";
+import { ICON_CLERIC, ICON_DECLINE, ICON_DICE, ICON_MAGE, ICON_ROGUE, ICON_START, ICON_WARRIOR } from "../icons";
+
+export const startDialog = new Dialog(
+  "startDialog", "Новая игра", [
+    new Phrase(
+      "Начать игру", "start", ICON_START, 
+      [],
+      [
+        new Action([ new Effect("alcohol_effect", "=", 0) ])
+      ], 
+      "setClass"
+    )
+  ])
 
 export const setClassDialog = new Dialog(
   "setClass", 
@@ -79,7 +91,7 @@ export const applySetClassDialog = new Dialog(
     "Да", "yes", ICON_DICE,
     [],
     [],
-    "tavern",
+    "setDish",
   ),
   new Phrase(
     "Назад", "no", ICON_DECLINE,
@@ -92,6 +104,6 @@ export const applySetClassDialog = new Dialog(
         new Effect(DIALOG_IMAGE, "=", ""),
       ]),
     ],
-    "setDish",
+    "setClass",
   ),
 ])

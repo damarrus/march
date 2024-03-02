@@ -7,8 +7,18 @@ import { Effect } from "./entities/Effect";
 import { ACTION_MESSAGE, CLEAR, DIALOG_IMAGE, DIALOG_MESSAGE, INPUT_PHRASE } from "./config";
 import { InputPhrase } from "./entities/InputPhrase";
 import { InputEffect } from "./entities/InputEffect";
+import { applySetClassDialog, setClassDialog } from "./dialogs/StartDialogs";
+import { tavernDialog } from "./dialogs/TavernDialogs";
+import { babkaDialog } from "./dialogs/BabkaDialogs";
 
 export const dialogs = [
+  setClassDialog,
+  applySetClassDialog,
+  tavernDialog,
+  babkaDialog
+]
+
+const dialogsExample = [
   
   new Dialog("start",  "Начало игры", 
     [

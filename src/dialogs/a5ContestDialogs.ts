@@ -15,19 +15,19 @@ export const contestChoiseDialog = new Dialog(
   ],
   [
 
-    new Phrase("Продолжу путь дальше", "continue", ICON_ACTION, [ new Condition("doneContests", "==", 0) ], [], "gameover"),
+    new Phrase("Продолжу путь дальше", "continue", ICON_ACTION, [ new Condition("doneContests", "==", 0) ], [], "underAttack"),
     new Phrase("Иду к \"Силомеру\"", "strength", ICON_STRENGTH, [ new Condition("doneContests", "==", 0) ], [], "strengthContest"),
     new Phrase("Иду к \"Загадкам\"", "intellect", ICON_INTELLECT, [ new Condition("doneContests", "==", 0) ], [], "intellectContest"),
-    new Phrase("Украду сундучок", "steal", ICON_STEAL, [ new Condition("doneContests", "==", 0) ], [], "gameover"),
+    new Phrase("Украду сундучок", "steal", ICON_STEAL, [ new Condition("doneContests", "==", 0) ], [], "chest"),
 
-    new Phrase("Пора в дорогу", "continue", ICON_ACTION, [ new Condition("doneContests", "==", 1) ], [], "gameover"),
+    new Phrase("Пора в дорогу", "continue", ICON_ACTION, [ new Condition("doneContests", "==", 1) ], [], "underAttack"),
     new Phrase("Иду к \"Силомеру\"", "strength", ICON_STRENGTH, [ new Condition("doneContests", "==", 1), new Condition("strengthContestDone", "==", false) ], [], "strengthContest"),
     new Phrase("Иду к \"Загадкам\"", "intellect", ICON_INTELLECT, [ new Condition("doneContests", "==", 1), new Condition("intellectContestDone", "==", false) ], [], "intellectContest"),
-    new Phrase("Сундучок, жди меня", "steal", ICON_STEAL, [ new Condition("doneContests", "==", 1) ], [], "gameover"),
+    new Phrase("Сундучок, жди меня", "steal", ICON_STEAL, [ new Condition("doneContests", "==", 1) ], [], "chest"),
     new Phrase("Побродить по ярмарке", "tokens", ICON_STEAL, [ new Condition("doneContests", "==", 1) ], [], "tokensChange"),
 
-    new Phrase("Пора в дорогу", "continue", ICON_ACTION, [ new Condition("doneContests", "==", 2) ], [], "gameover"),
-    new Phrase("А сундучок-то все стоит...", "steal", ICON_STEAL, [ new Condition("doneContests", "==", 2) ], [], "gameover"),
+    new Phrase("Пора в дорогу", "continue", ICON_ACTION, [ new Condition("doneContests", "==", 2) ], [], "underAttack"),
+    new Phrase("А сундучок-то все стоит...", "steal", ICON_STEAL, [ new Condition("doneContests", "==", 2) ], [], "chest"),
     new Phrase("Обменять жетоны", "tokens", ICON_STEAL, [ new Condition("doneContests", "==", 2) ], [], "tokensChange"),
 
     new Phrase("Подойти к сироте", "orphan", ICON_ACTION, [ new Condition("orphanWait", "==", true), new Condition("orphanDone", "==", false), ], [], "orphan"),

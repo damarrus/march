@@ -12,6 +12,8 @@ import { exploreTavernDialog, setDishDialog, tavernDialog, yarikDialog } from ".
 import { gnomDialog, gnomNextDialog, nextDayDialog, sleepDialog } from "./dialogs/a4HolidayDialogs";
 import { contestChoiseDialog, intellectContestDialog, intellectContestInputDialog, intellectContestVariantsDialog, strengthContestDialog } from "./dialogs/a5ContestDialogs";
 import { babkaDialog } from "./dialogs/a3BabkaDialogs";
+import { orphanDialog } from "./dialogs/a7OrphanDialogs";
+import { tokensDialog } from "./dialogs/a6TokensDialogs";
 
 export const dialogs = [
   startDialog,
@@ -37,9 +39,11 @@ export const dialogs = [
   intellectContestInputDialog,
   intellectContestVariantsDialog,
 
+  tokensDialog,
+  orphanDialog,
 
 
 
-  
+
   gameOverDialog
 ]

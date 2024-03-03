@@ -4,5 +4,11 @@ import { Dialog } from "../entities/Dialog";
 import { Effect } from "../entities/Effect";
 import { Phrase } from "../entities/Phrase";
 
-export const templateDialog = new Dialog("","",[])
+export const templateDialog = new Dialog(
+  "",
+  "",
+  [
+    
+  ]
+)
  

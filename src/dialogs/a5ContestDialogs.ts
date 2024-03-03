@@ -24,11 +24,14 @@ export const contestChoiseDialog = new Dialog(
     new Phrase("Иду к \"Силомеру\"", "strength", ICON_STRENGTH, [ new Condition("doneContests", "==", 1), new Condition("strengthContestDone", "==", false) ], [], "strengthContest"),
     new Phrase("Иду к \"Загадкам\"", "intellect", ICON_INTELLECT, [ new Condition("doneContests", "==", 1), new Condition("intellectContestDone", "==", false) ], [], "intellectContest"),
     new Phrase("Сундучок, жди меня", "steal", ICON_STEAL, [ new Condition("doneContests", "==", 1) ], [], "gameover"),
-    new Phrase("Побродить по ярмарке", "orphan", ICON_STEAL, [ new Condition("doneContests", "==", 1) ], [], "gameover"),
+    new Phrase("Побродить по ярмарке", "tokens", ICON_STEAL, [ new Condition("doneContests", "==", 1) ], [], "tokensChange"),
 
     new Phrase("Пора в дорогу", "continue", ICON_ACTION, [ new Condition("doneContests", "==", 2) ], [], "gameover"),
     new Phrase("А сундучок-то все стоит...", "steal", ICON_STEAL, [ new Condition("doneContests", "==", 2) ], [], "gameover"),
-    new Phrase("Обменять жетоны", "orphan", ICON_STEAL, [ new Condition("doneContests", "==", 2) ], [], "gameover"),
+    new Phrase("Обменять жетоны", "tokens", ICON_STEAL, [ new Condition("doneContests", "==", 2) ], [], "tokensChange"),
+
+    new Phrase("Подойти к сироте", "orphan", ICON_ACTION, [ new Condition("orphanWait", "==", true), new Condition("orphanDone", "==", false), ], [], "orphan"),
+
   ]
 )
 
@@ -47,7 +50,7 @@ export const strengthContestDialog = new Dialog(
           new Effect("strengthContestResult", "=", 3),
           new Effect("doneContests", "+=", 1),
           new Effect("strengthContestDone", "=", true),
-          new Effect(ACTION_MESSAGE, "=", "Зачем тебе молот, если твои кулаки еще тяжелее?!"),
+          new Effect(ACTION_MESSAGE, "=", "Зачем тебе молот, если твои кулаки еще тяжелее?!\n\nСцепив пальцы в “замок”, ты бьешь по аппарату сильнее любого молота. Грузик внутри “Силомера” взлетает вверх и раздается оглушительный “дзынь!”. На секунду в воздухе повисает тишина, которая тут же взрывается оглушительными аплодисментами. Конь Стэнтин, с опаской поглядывая на тебя, вручает тебе целых 3 жетона"),
         ]),
         new Action(
           [ new Effect(DIALOG_MESSAGE, "=", "С одним конкурсом закончили. Может глянуть на другие?"), ],
@@ -121,11 +124,7 @@ export const intellectContestDialog = new Dialog(
     new Phrase(
       "Я знаю ответ! (ввод)", "inputAnswer", ICON_INTELLECT,
       [],
-      [
-        new Action([
-          new Effect("intellectContestResult", "=", 4),
-        ])
-      ],
+      [],
       "intellectContestInput"
     ),
     new Phrase(
@@ -187,6 +186,7 @@ export const intellectContestVariantsDialog = new Dialog(
         new Action([ 
           new Effect("doneContests", "+=", 1),
           new Effect("intellectContestDone", "=", true),
+          new Effect("contestTokens", "+=", "intellectContestResult", true),
         ]),
         new Action(
           [ new Effect(DIALOG_MESSAGE, "=", "С одним конкурсом закончили. Может глянуть на другие?"), ],
@@ -218,7 +218,7 @@ export const intellectContestVariantsDialog = new Dialog(
       [
         new Action([ 
           new Effect("intellectContestDone", "=", true),
-          new Effect("contestTokens", "+=", "intellectContestResult"),
+          new Effect("contestTokens", "+=", "intellectContestResult", true),
           new Effect("doneContests", "+=", 1),
         ]),
         new Action(

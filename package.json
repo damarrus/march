@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/damarrus/march#readme",
   "dependencies": {
+    "csv-parse": "^5.5.5",
     "node-telegram-bot-api": "^0.59.0",
     "string-template": "^1.0.0",
     "ts-json-db": "^2.0.5",

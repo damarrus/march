@@ -18,10 +18,7 @@ export const ICON_STRENGTH = '💪🏾';
 export const ICON_INTELLECT = '🧠';
 export const ICON_STEAL = '🥷';
 export const ICON_SCROLL = '📜';
-export const ICON_WARRIOR = '🗡';
-export const ICON_CLERIC = '🕯';
-export const ICON_MAGE = '🪄';
-export const ICON_ROGUE = '🏹';
+
 export const ICON_WINE = '🍷';
 export const ICON_CHEESE = '🧀';
 export const ICON_PORK = '🍖';
@@ -30,3 +27,18 @@ export const ICON_SAKE = '🍶';
 export const ICON_CUCUMBER = '🥒';
 export const ICON_COOKIE = '🍪';
 export const ICON_HAMMER = '🔨';
+
+export const ICON_TOKEN = '🏵'
+export const ICON_POTION = '🧪'
+export const ICON_BEAR = '🧸'
+export const ICON_COCKEREL = '🐔'
+export const ICON_WREATH = '🌺'
+export const ICON_HIT = '🤾‍♀️'
+export const ICON_SORRY = '😔'
+export const ICON_BACK = '🔙'
+
+
+export const ICON_WARRIOR = '🗡';
+export const ICON_CLERIC = '🕯';
+export const ICON_MAGE = '🪄';
+export const ICON_ROGUE = '🏹';

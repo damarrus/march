@@ -15,20 +15,20 @@ export const contestChoiseDialog = new Dialog(
   ],
   [
 
-    new Phrase("Продолжу путь дальше", "continue", ICON_ACTION, [ new Condition("doneContests", "==", 0) ], [], "underAttack"),
-    new Phrase("Иду к \"Силомеру\"", "strength", ICON_STRENGTH, [ new Condition("doneContests", "==", 0) ], [], "strengthContest"),
-    new Phrase("Иду к \"Загадкам\"", "intellect", ICON_INTELLECT, [ new Condition("doneContests", "==", 0) ], [], "intellectContest"),
-    new Phrase("Украду сундучок", "steal", ICON_STEAL, [ new Condition("doneContests", "==", 0) ], [], "chest"),
+    new Phrase("Продолжу путь дальше", "continue1", ICON_ACTION, [ new Condition("doneContests", "==", 0) ], [], "underAttack"),
+    new Phrase("Иду к \"Силомеру\"", "strength1", ICON_STRENGTH, [ new Condition("doneContests", "==", 0) ], [], "strengthContest"),
+    new Phrase("Иду к \"Загадкам\"", "intellect1", ICON_INTELLECT, [ new Condition("doneContests", "==", 0) ], [], "intellectContest"),
+    new Phrase("Украду сундучок", "steal1", ICON_STEAL, [ new Condition("doneContests", "==", 0) ], [], "chest"),
 
-    new Phrase("Пора в дорогу", "continue", ICON_ACTION, [ new Condition("doneContests", "==", 1) ], [], "underAttack"),
-    new Phrase("Иду к \"Силомеру\"", "strength", ICON_STRENGTH, [ new Condition("doneContests", "==", 1), new Condition("strengthContestDone", "==", false) ], [], "strengthContest"),
-    new Phrase("Иду к \"Загадкам\"", "intellect", ICON_INTELLECT, [ new Condition("doneContests", "==", 1), new Condition("intellectContestDone", "==", false) ], [], "intellectContest"),
-    new Phrase("Сундучок, жди меня", "steal", ICON_STEAL, [ new Condition("doneContests", "==", 1) ], [], "chest"),
-    new Phrase("Побродить по ярмарке", "tokens", ICON_STEAL, [ new Condition("doneContests", "==", 1) ], [], "tokensChange"),
+    new Phrase("Пора в дорогу", "continue2", ICON_ACTION, [ new Condition("doneContests", "==", 1) ], [], "underAttack"),
+    new Phrase("Иду к \"Силомеру\"", "strength2", ICON_STRENGTH, [ new Condition("doneContests", "==", 1), new Condition("strengthContestDone", "==", false) ], [], "strengthContest"),
+    new Phrase("Иду к \"Загадкам\"", "intellect2", ICON_INTELLECT, [ new Condition("doneContests", "==", 1), new Condition("intellectContestDone", "==", false) ], [], "intellectContest"),
+    new Phrase("Сундучок, жди меня", "steal2", ICON_STEAL, [ new Condition("doneContests", "==", 1) ], [], "chest"),
+    new Phrase("Побродить по ярмарке", "tokens2", ICON_STEAL, [ new Condition("doneContests", "==", 1) ], [], "tokensChange"),
 
-    new Phrase("Пора в дорогу", "continue", ICON_ACTION, [ new Condition("doneContests", "==", 2) ], [], "underAttack"),
-    new Phrase("А сундучок-то все стоит...", "steal", ICON_STEAL, [ new Condition("doneContests", "==", 2) ], [], "chest"),
-    new Phrase("Обменять жетоны", "tokens", ICON_STEAL, [ new Condition("doneContests", "==", 2) ], [], "tokensChange"),
+    new Phrase("Пора в дорогу", "continue3", ICON_ACTION, [ new Condition("doneContests", "==", 2) ], [], "underAttack"),
+    new Phrase("А сундучок-то все стоит...", "steal3", ICON_STEAL, [ new Condition("doneContests", "==", 2) ], [], "chest"),
+    new Phrase("Обменять жетоны", "tokens3", ICON_STEAL, [ new Condition("doneContests", "==", 2) ], [], "tokensChange"),
 
     new Phrase("Подойти к сироте", "orphan", ICON_ACTION, [ new Condition("orphanWait", "==", true), new Condition("orphanDone", "==", false), ], [], "orphan"),
 
@@ -128,7 +128,7 @@ export const intellectContestDialog = new Dialog(
       "intellectContestInput"
     ),
     new Phrase(
-      "Варианты ответа?", "inputAnswer", ICON_QUESTION,
+      "Варианты ответа?", "getAnswers", ICON_QUESTION,
       [],
       [
         new Action([

@@ -23,7 +23,7 @@ export const babkaDialog = new Dialog(
         "epicFailure",
     ),
     new Phrase(
-        "Коротко разбежавшись, прыжком взлететь на ветку, где сидит котенок", "jump", ICON_JUMP,
+        "Коротко разбежавшись, прыжком взлететь на ветку, где сидит котенок", "jump1", ICON_JUMP,
         [
             new Condition("heroClass", "==", "rogue"),
             new Condition("alcohol_effect", "==", 2)
@@ -36,7 +36,7 @@ export const babkaDialog = new Dialog(
         "halfFailure",
     ),
     new Phrase(
-        "Коротко разбежавшись, прыжком взлететь на ветку, где сидит котенок", "jump", ICON_JUMP,
+        "Коротко разбежавшись, прыжком взлететь на ветку, где сидит котенок", "jump2", ICON_JUMP,
         [
             new Condition("heroClass", "==", "rogue"),
             new Condition("alcohol_effect", "<", 2)
@@ -45,7 +45,7 @@ export const babkaDialog = new Dialog(
         "success",
     ),
     new Phrase(
-        "Коротко разбежавшись, прыжком взлететь на ветку, где сидит котенок", "jump", ICON_JUMP,
+        "Коротко разбежавшись, прыжком взлететь на ветку, где сидит котенок", "jump3", ICON_JUMP,
         [
             new Condition("heroClass", "!=", "rogue"),
             new Condition("alcohol_effect", "==", 1)
@@ -58,7 +58,7 @@ export const babkaDialog = new Dialog(
         "halfFailure",
     ),
     new Phrase(
-        "Коротко разбежавшись, прыжком взлететь на ветку, где сидит котенок", "jump", ICON_JUMP,
+        "Коротко разбежавшись, прыжком взлететь на ветку, где сидит котенок", "jump4", ICON_JUMP,
         [
             new Condition("heroClass", "!=", "rogue"),
             new Condition("alcohol_effect", "==", 0)
@@ -67,7 +67,7 @@ export const babkaDialog = new Dialog(
         "success",
     ),
     new Phrase(
-        "Коротко разбежавшись, прыжком взлететь на ветку, где сидит котенок", "jump", ICON_JUMP,
+        "Коротко разбежавшись, прыжком взлететь на ветку, где сидит котенок", "jump5", ICON_JUMP,
         [
             new Condition("heroClass", "!=", "rogue"),
             new Condition("alcohol_effect", "==", 2)
@@ -80,7 +80,7 @@ export const babkaDialog = new Dialog(
         "failure",
     ),
     new Phrase(
-        "Силой телекинеза подхватить котенка и осторожно перенести его на землю", "telekinesis", ICON_HAND_WAVE,
+        "Силой телекинеза подхватить котенка и осторожно перенести его на землю", "telekinesis1", ICON_HAND_WAVE,
         [ 
             new Condition("heroClass", "==", "mage"),
             new Condition("alcohol_effect", "==", 2)
@@ -93,7 +93,7 @@ export const babkaDialog = new Dialog(
         "failure",
     ),
     new Phrase(
-        "Силой телекинеза подхватить котенка и осторожно перенести его на землю", "telekinesis", ICON_HAND_WAVE,
+        "Силой телекинеза подхватить котенка и осторожно перенести его на землю", "telekinesis2", ICON_HAND_WAVE,
         [ 
             new Condition("heroClass", "==", "mage"),
             new Condition("alcohol_effect", "==", 1)
@@ -106,7 +106,7 @@ export const babkaDialog = new Dialog(
         "halfFailure",
     ),
     new Phrase(
-        "Силой телекинеза подхватить котенка и осторожно перенести его на землю", "telekinesis", ICON_HAND_WAVE,
+        "Силой телекинеза подхватить котенка и осторожно перенести его на землю", "telekinesis3", ICON_HAND_WAVE,
         [ 
             new Condition("heroClass", "==", "mage"),
             new Condition("alcohol_effect", "==", 0)

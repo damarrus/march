@@ -34,7 +34,7 @@ export const chestDialog = new Dialog(
       "gameover"
     ),
     new Phrase(
-      "Уйти", "go", ICON_ACTION, 
+      "Уйти", "away", ICON_ACTION, 
       [], 
       [
         new Action([ new Effect(ACTION_MESSAGE, "=", "Не мое дело, пора уже в путь") ])

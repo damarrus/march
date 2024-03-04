@@ -2,9 +2,17 @@ import bot from "./bot";
 import { dialogs } from "./dialogs";
 import { UserController } from "./UserController";
 
+// TODO добавить проверку на то, что фразы разные
 dialogs.forEach(dialog => {
   let isError = false;
+  let phrasesData : string[] = []
   dialog.phrases.forEach(phrase => {
+    if (phrasesData.find(data => data === phrase.buttonData)) {
+      isError = true
+      console.log(`${dialog.name}-${phrase.buttonData} => double phrase data`)
+    } else {
+      phrasesData.push(phrase.buttonData)
+    }
     const nextDialog = dialogs.find(d => d.name === phrase.nextDialog)
     if (!nextDialog) {
       isError = true

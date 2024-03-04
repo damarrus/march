@@ -63,7 +63,11 @@ export const babkaDialog = new Dialog(
             new Condition("heroClass", "!=", "rogue"),
             new Condition("alcohol_effect", "==", 0)
         ],
-        [],
+        [ 
+            new Action([ 
+              new Effect(ACTION_MESSAGE, "=", `Как тигр, как барс взмываешь ты ловким прыжком на ветку и, подхватив котенка, также сноровисто спрыгиваешь вниз к ожидающей его хозяйке.`),
+            ]),
+        ],
         "success",
     ),
     new Phrase(
@@ -121,7 +125,11 @@ export const babkaDialog = new Dialog(
     new Phrase(
         "Достать из рюкзака кусочек бекона и попытаться приманить котика", "bacon", ICON_BACON,
         [],
-        [],
+        [ 
+            new Action([ 
+              new Effect(ACTION_MESSAGE, "=", `Вкуснейший аромат разносится по улице. Только что жалобно плакавший кисуля, нетерпеливо облизнувшись, ловко спускается по стволу вниз и мяукая подбегает к тебе. Протянув ему бекон, ты смотришь как он с аппетитом проглатывает его и довольно мурчит.`),
+            ]),
+        ],
         "success",
     ),
     new Phrase(

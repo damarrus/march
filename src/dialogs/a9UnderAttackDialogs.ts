@@ -6,7 +6,7 @@ import { Effect } from "../entities/Effect";
 import { Phrase } from "../entities/Phrase";
 import { ICON_ACTION, ICON_CLERIC, ICON_MAGE, ICON_ROGUE, ICON_STRENGTH, ICON_WARRIOR } from "../icons";
 
-export const templateDialog = new Dialog(
+export const underAttackDialog = new Dialog(
   "underAttack",
   "Уже приближаясь к выходу из деревни, ты слышишь звуки боя. Повернув за угол, ты видишь, что прямо у ворот закованный в броню рыцарь с огромным щитом и молотом бьется против толпы каких-то вооруженных оборванцев.В ту же секунду начинают бить в набат - похоже на деревню напали разбойники. Один из нападавших замечает тебя и заорав что-то бессвязное бросается вперед, нацелив на тебя саблю.",
   [

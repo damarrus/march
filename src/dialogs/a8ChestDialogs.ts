@@ -5,7 +5,7 @@ import { Effect } from "../entities/Effect";
 import { Phrase } from "../entities/Phrase";
 import { ICON_ACTION, ICON_LOOK, ICON_TADA } from "../icons";
 
-export const templateDialog = new Dialog(
+export const chestDialog = new Dialog(
   "chest",
   "Оглядываясь в поисках других интересных занятий, ты вдруг видишь что у столика с сундучком ошиваются два неприятно выглядящих мужика. Один из них, встает прямо перед столом, загораживая его, а второй начинает что-то делать с замком.",
   [

@@ -11,9 +11,11 @@ import { applySetClassDialog, gameOverDialog, setClassDialog, startDialog, villa
 import { exploreTavernDialog, setDishDialog, tavernDialog, yarikDialog } from "./dialogs/a2TavernDialogs";
 import { gnomDialog, gnomNextDialog, nextDayDialog, sleepDialog } from "./dialogs/a4HolidayDialogs";
 import { contestChoiseDialog, intellectContestDialog, intellectContestInputDialog, intellectContestVariantsDialog, strengthContestDialog } from "./dialogs/a5ContestDialogs";
-import { babkaDialog } from "./dialogs/a3BabkaDialogs";
+import { babkaDialog, epicFailureDialog, failureDialog, halfFailureDialog, successDialog } from "./dialogs/a3BabkaDialogs";
 import { orphanDialog } from "./dialogs/a7OrphanDialogs";
 import { tokensDialog } from "./dialogs/a6TokensDialogs";
+import { chestDialog } from "./dialogs/a8ChestDialogs";
+import { underAttackDialog } from "./dialogs/a9UnderAttackDialogs";
 
 export const dialogs = [
   startDialog,
@@ -27,6 +29,10 @@ export const dialogs = [
   yarikDialog,
 
   babkaDialog,
+  epicFailureDialog,
+  failureDialog,
+  halfFailureDialog,
+  successDialog,
   
   sleepDialog,
   nextDayDialog,
@@ -42,7 +48,8 @@ export const dialogs = [
   tokensDialog,
   orphanDialog,
 
-
+  chestDialog,
+  underAttackDialog,
 
 
   gameOverDialog

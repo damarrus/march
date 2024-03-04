@@ -133,7 +133,7 @@ export const babkaDialog = new Dialog(
         "success",
     ),
     new Phrase(
-        "Пусть бабка разбирается сама", "away", ICON_WALKING,
+        "Пусть бабка разбирается сама", "away1", ICON_WALKING,
         [],
         [],
         "sleep",
@@ -147,7 +147,7 @@ export const epicFailureDialog = new Dialog(
     ], 
     [
     new Phrase(
-      "В таверну", "away", ICON_WALKING,
+      "В таверну", "away2", ICON_WALKING,
       [],
       [
         new Action([
@@ -166,7 +166,7 @@ export const epicFailureDialog = new Dialog(
     ], 
     [
     new Phrase(
-        "В таверну", "away", ICON_WALKING,
+        "В таверну", "away3", ICON_WALKING,
         [],
         [
             new Action([
@@ -185,7 +185,7 @@ export const epicFailureDialog = new Dialog(
     ], 
     [
     new Phrase(
-        "В таверну", "away", ICON_WALKING,
+        "В таверну", "away4", ICON_WALKING,
         [],
         [
             new Action([
@@ -204,7 +204,7 @@ export const epicFailureDialog = new Dialog(
     ], 
     [
     new Phrase(
-        "В таверну", "away", ICON_WALKING,
+        "В таверну", "away5", ICON_WALKING,
         [],
         [
             new Action([

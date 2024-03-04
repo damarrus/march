@@ -17,6 +17,7 @@ export const startDialog = new Dialog(
       [],
       [
         new Action([ 
+          new Effect("damage_received", "=", 0),
           new Effect("alcohol_effect", "=", 0),
           new Effect("contestTokens", "=", 0),
           new Effect("doneContests", "=", 0),

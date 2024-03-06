@@ -27,7 +27,12 @@ export const contestChoiseDialog = new Dialog(
     new Phrase("Побродить по ярмарке", "tokens2", ICON_STEAL, [ new Condition("doneContests", "==", 1) ], [], "tokensChange"),
 
     new Phrase("Пора в дорогу", "continue3", ICON_ACTION, [ new Condition("doneContests", "==", 2) ], [], "underAttack"),
-    new Phrase("А сундучок-то все стоит...", "steal3", ICON_STEAL, [ new Condition("doneContests", "==", 2) ], [], "chest"),
+    new Phrase("А сундучок-то все стоит...", "steal3", ICON_STEAL, [ new Condition("doneContests", "==", 2) ], 
+    [ 
+      new Action([ 
+      new Effect("steal_prize_effect", "=", 1),
+      ]) 
+    ], "chest"),
     new Phrase("Обменять жетоны", "tokens3", ICON_STEAL, [ new Condition("doneContests", "==", 2) ], [], "tokensChange"),
 
     new Phrase("Подойти к сироте", "orphan", ICON_ACTION, [ new Condition("orphanWait", "==", true), new Condition("orphanDone", "==", false), ], [], "orphan"),

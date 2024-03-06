@@ -1,5 +1,6 @@
 import { ACTION_MESSAGE, DIALOG_IMAGE, DIALOG_MESSAGE } from "../config";
 import { Action } from "../entities/Action";
+import { Condition } from "../entities/Condition";
 import { Dialog } from "../entities/Dialog";
 import { Effect } from "../entities/Effect";
 import { Phrase } from "../entities/Phrase";
@@ -128,10 +129,12 @@ export const tavernDialog = new Dialog(
     ),
     new Phrase(
       "Украсть призовой фонд", "steal_prize", ICON_MONEYBAG,
-      [],
+      [
+        new Condition("heroClass", "==", "rogue")
+      ],
       [ 
         new Action([ 
-            new Effect("tavern_steal_prize_effect", "=", 1),
+            new Effect("steal_prize_effect", "=", 1),
         ]),
       ],
       "babkaDialog",

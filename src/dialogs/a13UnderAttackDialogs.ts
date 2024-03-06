@@ -4,7 +4,33 @@ import { Condition } from "../entities/Condition";
 import { Dialog } from "../entities/Dialog";
 import { Effect } from "../entities/Effect";
 import { Phrase } from "../entities/Phrase";
-import { ICON_ACTION, ICON_CLERIC, ICON_MAGE, ICON_ROGUE, ICON_STRENGTH, ICON_WARRIOR } from "../icons";
+import { ICON_ACTION, ICON_CLERIC, ICON_CLOCK, ICON_EYE, ICON_FIRE, ICON_FORK, ICON_KNIFE, ICON_MAGE, ICON_MAGIC, ICON_MONEYBAG, ICON_NURCE, ICON_PRAY, ICON_PRAY2, ICON_RAGE, ICON_REMORSE, ICON_ROGUE, ICON_RUN, ICON_SHIELD, ICON_STRENGTH, ICON_WARRIOR } from "../icons";
+
+export const chestHelpDialog = new Dialog(
+  "chestHelp",
+  " Мужики переглянувшись кивают тебе и жестами говорят ждать сигнала. Буквально через минуту, с другой стороны площади раздается громкий свист и несколько человек в толпе выхватывают оружие. В ту же секунду начинают бить в набат, а перепуганные жители спешат убраться с улицы - похоже на деревню напали разбойники.",
+  [
+    new Phrase(
+      "Воровская честь.", "aye", ICON_FORK + ICON_EYE, 
+      [], 
+      [
+        new Action([ new Effect(ACTION_MESSAGE, "=", "Ты и твои подельники бросаетесь к сундучку. Пока ты помогаешь одному нести сундук, другой следит, чтобы не было хвоста. Втроем вы добираетесь до другого конца деревни. Бой остался далеко позади.") ])
+      ],
+      "thievPath"
+    ),
+    new Phrase(
+      "Искупление.", "remorse", ICON_REMORSE, 
+      [], 
+      [
+        new Action([ 
+          new Effect(ACTION_MESSAGE, "=", "Ты чувствуешь, что поступаешь неправильно. Для совести ты была редким собеседником. Но ведь все еще можно изменить."),
+          new Effect("remorse_effect", "=", 1)
+        ]),        
+      ],
+      "ebkaRogue"
+    ),
+  ]
+)
 
 export const chestAlarmOrGoDialog = new Dialog(
   "chestAlarmOrGo",
@@ -20,19 +46,19 @@ export const chestAlarmOrGoDialog = new Dialog(
       "К бою", "leave", ICON_MAGE, 
       [new Condition("heroClass", "==", "mage")], 
       [],
-      "ebkaWar"
+      "ebkaMage"
     ),
     new Phrase(
       "К бою", "leave", ICON_ROGUE, 
       [new Condition("heroClass", "==", "rogue")], 
       [],
-      "ebkaWar"
+      "ebkaRogue"
     ),
     new Phrase(
       "К бою", "leave", ICON_CLERIC, 
       [new Condition("heroClass", "==", "cleric")], 
       [],
-      "ebkaWar"
+      "ebkaCleric"
     ),
   ]
 )
@@ -55,19 +81,19 @@ export const chestLookDialog = new Dialog(
       "К бою", "leave", ICON_MAGE, 
       [new Condition("heroClass", "==", "mage")], 
       [],
-      "ebkaWar"
+      "ebkaMage"
     ),
     new Phrase(
       "К бою", "leave", ICON_ROGUE, 
       [new Condition("heroClass", "==", "rogue")], 
       [],
-      "ebkaWar"
+      "ebkaRogue"
     ),
     new Phrase(
       "К бою", "leave", ICON_CLERIC, 
       [new Condition("heroClass", "==", "cleric")], 
       [],
-      "ebkaWar"
+      "ebkaCleric"
     ),
   ]
 )
@@ -76,77 +102,124 @@ export const chestLookDialog = new Dialog(
 
 export const ebkaWarDialog = new Dialog(
   "ebkaWar", 
+  [], 
   [
-    "Бабуля благодарит за помощь и протягивает тебе две золотых монеты.",
-    "Довольная собой можешь отправиться в таверну отдыхать"
-  ], 
-  [
-  new Phrase(
-      "В таверну", "away5", ICON_WALKING,
-      [],
+    new Phrase(
+      "Стена щитов!", "shield_wall", ICON_SHIELD + ICON_SHIELD + ICON_SHIELD, 
+      [], 
       [
-          new Action([
-          new Effect("gold", "+=", 2),
-          ]),
+        new Action([ new Effect(ACTION_MESSAGE, "=", "Громко отдавая приказы растерявшимся деревенским ополченцам, ты строишь их в боевой порядок. Вместе вы начинаете теснить разбойников.") ])
       ],
-      "sleep",
-      )   
+      "gameover"
+    ),
+    new Phrase(
+      "Я - ярость!", "rage", ICON_RAGE, 
+      [], 
+      [
+        new Action([ new Effect(ACTION_MESSAGE, "=", "Твой боевой рев разносится над деревней. Рафаэлло со свистом рассекает воздух, когда ты обрушиваешься на разбойников словно стальной вихрь.") ])
+      ],
+      "gameover"
+    ), 
+    new Phrase(
+      "Не мой бой.", "pisya", ICON_RUN, 
+      [], 
+      [
+        new Action([ new Effect(ACTION_MESSAGE, "=", "Тактически будет разумней отступить из деревни. Ты разнесешь по пути весть о том, что тут хозяйничают разбойники и, возможно, еще вернешься с подкреплением. Да, так и будет.") ])
+      ],
+      "gameover"
+    ),   
 ])
 
 export const ebkaClericDialog = new Dialog(
   "ebkaCleric", 
+  [], 
   [
-    "Бабуля благодарит за помощь и протягивает тебе две золотых монеты.",
-    "Довольная собой можешь отправиться в таверну отдыхать"
-  ], 
-  [
-  new Phrase(
-      "В таверну", "away5", ICON_WALKING,
-      [],
+    new Phrase(
+      "Заупокойная молитва.", "pray", ICON_PRAY, 
+      [], 
       [
-          new Action([
-          new Effect("gold", "+=", 2),
-          ]),
+        new Action([ new Effect(ACTION_MESSAGE, "=", "Аки пастух разит волков, что вредят стаду его, так и ты разишь булавой супостатов, громко читая молитву. С каждым взмахом оружие вспыхивает божественным светом, ослепляя разбойников.") ])
       ],
-      "sleep",
-      )   
+      "gameover"
+    ), 
+    new Phrase(
+      "Я несу исцеление.", "nurce", ICON_NURCE, 
+      [], 
+      [
+        new Action([ new Effect(ACTION_MESSAGE, "=", "Прикоснувшись к божественному символу, ты творишь исцеляющие заклинания, поддерживая раненых бойцов и помогая им без устали теснить разбойников.") ])
+      ],
+      "gameover"
+    ), 
+    new Phrase(
+      "Помолясь, дети мои.", "pray2", ICON_PRAY2, 
+      [], 
+      [
+        new Action([ new Effect(ACTION_MESSAGE, "=", "Прошептав молитву, ты призываешь силы Света и благословляешь ближайших ополченцев. Воодушевленные помощью свыше, деревенские воители храбро бросаются на врага, давая тебе возможность убраться из деревни.") ])
+      ],
+      "gameover"
+    ),   
 ])
 
 export const ebkaMageDialog = new Dialog(
   "ebkaMage", 
+  [], 
   [
-    "Бабуля благодарит за помощь и протягивает тебе две золотых монеты.",
-    "Довольная собой можешь отправиться в таверну отдыхать"
-  ], 
-  [
-  new Phrase(
-      "В таверну", "away5", ICON_WALKING,
-      [],
+    new Phrase(
+      "Магическая поддержка.", "clock", ICON_CLOCK, 
+      [], 
       [
-          new Action([
-          new Effect("gold", "+=", 2),
-          ]),
+        new Action([ new Effect(ACTION_MESSAGE, "=", "Прочитав заклинание, ты словно подчиняешь себе ход времени вокруг разбойников. Их движения становятся медлительными и неуклюжими, давая ополченцам шанс быстро расправиться с врагом.") ])
       ],
-      "sleep",
-      )   
+      "gameover"
+    ),
+    new Phrase(
+      "Ярость стихий.", "fire", ICON_FIRE, 
+      [], 
+      [
+        new Action([ new Effect(ACTION_MESSAGE, "=", "Что могут мечи, против молний и огненных шаров? Открыв свой фолиант, ты громоподобным голосом читаешь заклинание, обрушивающее на бандитов град огненных стрел.") ])
+      ],
+      "gameover"
+    ),
+    new Phrase(
+      "Телепортируюсь!", "teleport", ICON_MAGIC, 
+      [], 
+      [
+        new Action([ new Effect(ACTION_MESSAGE, "=", "Кажется тут не место начитанным и образованным людям. Пробормотав короткое заклинание, ты оказываешься за пределами деревни.") ])
+      ],
+      "gameover"
+    ),     
 ])
 
 export const ebkaRogueDialog = new Dialog(
   "ebkaRogue", 
+  [], 
   [
-    "Бабуля благодарит за помощь и протягивает тебе две золотых монеты.",
-    "Довольная собой можешь отправиться в таверну отдыхать"
-  ], 
-  [
-  new Phrase(
-      "В таверну", "away5", ICON_WALKING,
-      [],
+    new Phrase(
+      "Все твое теперь мое.", "money_bag", ICON_MONEYBAG, 
       [
-          new Action([
-          new Effect("gold", "+=", 2),
-          ]),
+        new Condition("steal_prize_effect", "==", 1),
+        new Condition("remorse_effect", "==", 0),
+      ], 
+      [
+        new Action([ new Effect(ACTION_MESSAGE, "=", "Одним движением ты выхватываешь дымовую шашку и бросаешь ее на землю. Поднимается облако дыма, смешанное с дорожной пылью из-за дерущихся людей. Не теряя ни секунды,  ты подбегаешь к сундуку и сбиваешь непрочный замок рукоятью кинжала. Забрав лежащий там увесистый мешочек золотых монет, ты думаешь что делать дальше?") ])
       ],
-      "sleep",
-      )   
+      "gameover"
+    ),   
+    new Phrase(
+      "Удар из тени.", "knife", ICON_KNIFE, 
+      [], 
+      [
+        new Action([ new Effect(ACTION_MESSAGE, "=", "Твои движения молниеносны. Сжимая в одной руке кинжал, а во второй арбалет, то скрываясь между палаток и ближайших кустов, то появляясь снова за спинами разбойников, ты разишь их одного за другим.") ])
+      ],
+      "gameover"
+    ), 
+    new Phrase(
+      "Рвем когти!", "professional", ICON_RUN, 
+      [], 
+      [
+        new Action([ new Effect(ACTION_MESSAGE, "=", "Воспользовавшись суматохой, ты ловко скрываешься между палаток и, прячась в тенях, добираешься до другого конца деревни. Бой остался далеко позади.") ])
+      ],
+      "gameover"
+    ),  
 ])
  

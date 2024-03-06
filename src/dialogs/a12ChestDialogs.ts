@@ -115,7 +115,7 @@ export const stealChestDialog = new Dialog(
       [
         new Action([ new Effect(ACTION_MESSAGE, "=", "Работники ножа и топора, объединяйтесь! Ты, убедившись что они тебя видят, показываешь им несколько воровских жестов, предлагая сотрудничество.") ])
       ],
-      "gameover"
+      "chestHelp"
     ),
     new Phrase(
       "Тревога", "alarm", ICON_ALARM, 

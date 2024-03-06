@@ -22,6 +22,8 @@ export const startDialog = new Dialog(
           new Effect("contestTokens", "=", 0),
           new Effect("doneContests", "=", 0),
           new Effect("gold", "=", 0),
+          new Effect("steal_prize_effect", "=", 0),
+          new Effect("remorse_effect", "=", 0),
         ])
       ], 
       "setClass"

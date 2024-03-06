@@ -6,58 +6,147 @@ import { Effect } from "../entities/Effect";
 import { Phrase } from "../entities/Phrase";
 import { ICON_ACTION, ICON_CLERIC, ICON_MAGE, ICON_ROGUE, ICON_STRENGTH, ICON_WARRIOR } from "../icons";
 
-export const underAttackDialog = new Dialog(
-  "underAttack",
-  "Уже приближаясь к выходу из деревни, ты слышишь звуки боя. Повернув за угол, ты видишь, что прямо у ворот закованный в броню рыцарь с огромным щитом и молотом бьется против толпы каких-то вооруженных оборванцев.В ту же секунду начинают бить в набат - похоже на деревню напали разбойники. Один из нападавших замечает тебя и заорав что-то бессвязное бросается вперед, нацелив на тебя саблю.",
+export const chestAlarmOrGoDialog = new Dialog(
+  "chestAlarmOrGo",
+  "Мужики, поняв что их заметили, выхватывают ножи и громко свистят. С другой стороны площади им отвечает такой же свист и еще несколько человек в толпе выхватывают оружие. В ту же секунду начинают бить в набат, а перепуганные жители спешат убраться с улицы - похоже на деревню напали разбойники.",
   [
     new Phrase(
-      "Убежать", "leave", ICON_ACTION, 
-      [], 
-      [
-        new Action([ new Effect(ACTION_MESSAGE, "=", "Да ну нахер! Уворачиваясь от атак опасного дурака, ты бежишь в противоположную сторону, пока наконец не понимаешь, что от деревни ты уже далеко, а за тобой никто не гонится.") ])
-      ],
-      "gameover"
+      "К бою", "leave", ICON_WARRIOR, 
+      [new Condition("heroClass", "==", "warrior")], 
+      [],
+      "ebkaWar"
     ),
     new Phrase(
-      "Обезвредить", "stun", ICON_STRENGTH, 
-      [], 
-      [
-        new Action([ new Effect(ACTION_MESSAGE, "=", "Уклонившись, ты слегка бьешь его рукоятью меча/булавы/кинжала в висок и разбойник валится на землю.") ])
-      ],
-      "gameover"
+      "К бою", "leave", ICON_MAGE, 
+      [new Condition("heroClass", "==", "mage")], 
+      [],
+      "ebkaWar"
     ),
     new Phrase(
-      "Убивай-убиВАЙ-УБИВАЙ", "warrior", ICON_WARRIOR, 
-      [ new Condition("heroClass", "==", "warrior") ], 
-      [
-        new Action([ new Effect(ACTION_MESSAGE, "=", "Они знали на что шли. Выхватив оружие Рафаэлло ты атакуешь бандитов.") ])
-      ],
-      "gameover"
+      "К бою", "leave", ICON_ROGUE, 
+      [new Condition("heroClass", "==", "rogue")], 
+      [],
+      "ebkaWar"
     ),
     new Phrase(
-      "Шаман баяна!", "mage", ICON_MAGE, 
-      [ new Condition("heroClass", "==", "mage") ], 
-      [
-        new Action([ new Effect(ACTION_MESSAGE, "=", "Они знали на что шли. Летят в ебальник фаерболы.") ])
-      ],
-      "gameover"
-    ),
-    new Phrase(
-      "ВО ИМЯ СВЕТА!", "cleric", ICON_CLERIC, 
-      [ new Condition("heroClass", "==", "cleric") ], 
-      [
-        new Action([ new Effect(ACTION_MESSAGE, "=", "Они знали на что шли. Божья кара и булава опускаются на головы противника.") ])
-      ],
-      "gameover"
-    ),
-    new Phrase(
-      "Ты об этом пожалеешь!", "rogue", ICON_ROGUE, 
-      [ new Condition("heroClass", "==", "rogue") ], 
-      [
-        new Action([ new Effect(ACTION_MESSAGE, "=", "Они знали на что шли. И они умерли, даже не успев моргнуть.") ])
-      ],
-      "gameover"
+      "К бою", "leave", ICON_CLERIC, 
+      [new Condition("heroClass", "==", "cleric")], 
+      [],
+      "ebkaWar"
     ),
   ]
 )
+
+export const chestLookDialog = new Dialog(
+  "chestLook",
+  [
+    "Пристально глядя на злоумышленников, ты слышишь как кто-то в толпе кричит:",
+    "   - \"Воры, грабеж! Тревога!\"",
+    "Мужики, поняв что их заметили, выхватывают ножи и громко свистят. С другой стороны площади им отвечает такой же свист и еще несколько человек в толпе выхватывают оружие. В ту же секунду начинают бить в набат, а перепуганные жители спешат убраться с улицы - похоже на деревню напали разбойники.",
+  ],
+  [
+    new Phrase(
+      "К бою", "leave", ICON_WARRIOR, 
+      [new Condition("heroClass", "==", "warrior")], 
+      [],
+      "ebkaWar"
+    ),
+    new Phrase(
+      "К бою", "leave", ICON_MAGE, 
+      [new Condition("heroClass", "==", "mage")], 
+      [],
+      "ebkaWar"
+    ),
+    new Phrase(
+      "К бою", "leave", ICON_ROGUE, 
+      [new Condition("heroClass", "==", "rogue")], 
+      [],
+      "ebkaWar"
+    ),
+    new Phrase(
+      "К бою", "leave", ICON_CLERIC, 
+      [new Condition("heroClass", "==", "cleric")], 
+      [],
+      "ebkaWar"
+    ),
+  ]
+)
+
+
+
+export const ebkaWarDialog = new Dialog(
+  "ebkaWar", 
+  [
+    "Бабуля благодарит за помощь и протягивает тебе две золотых монеты.",
+    "Довольная собой можешь отправиться в таверну отдыхать"
+  ], 
+  [
+  new Phrase(
+      "В таверну", "away5", ICON_WALKING,
+      [],
+      [
+          new Action([
+          new Effect("gold", "+=", 2),
+          ]),
+      ],
+      "sleep",
+      )   
+])
+
+export const ebkaClericDialog = new Dialog(
+  "ebkaCleric", 
+  [
+    "Бабуля благодарит за помощь и протягивает тебе две золотых монеты.",
+    "Довольная собой можешь отправиться в таверну отдыхать"
+  ], 
+  [
+  new Phrase(
+      "В таверну", "away5", ICON_WALKING,
+      [],
+      [
+          new Action([
+          new Effect("gold", "+=", 2),
+          ]),
+      ],
+      "sleep",
+      )   
+])
+
+export const ebkaMageDialog = new Dialog(
+  "ebkaMage", 
+  [
+    "Бабуля благодарит за помощь и протягивает тебе две золотых монеты.",
+    "Довольная собой можешь отправиться в таверну отдыхать"
+  ], 
+  [
+  new Phrase(
+      "В таверну", "away5", ICON_WALKING,
+      [],
+      [
+          new Action([
+          new Effect("gold", "+=", 2),
+          ]),
+      ],
+      "sleep",
+      )   
+])
+
+export const ebkaRogueDialog = new Dialog(
+  "ebkaRogue", 
+  [
+    "Бабуля благодарит за помощь и протягивает тебе две золотых монеты.",
+    "Довольная собой можешь отправиться в таверну отдыхать"
+  ], 
+  [
+  new Phrase(
+      "В таверну", "away5", ICON_WALKING,
+      [],
+      [
+          new Action([
+          new Effect("gold", "+=", 2),
+          ]),
+      ],
+      "sleep",
+      )   
+])
  

@@ -14,8 +14,8 @@ import { contestChoiseDialog, intellectContestDialog, intellectContestInputDialo
 import { babkaDialog, epicFailureDialog, failureDialog, halfFailureDialog, successDialog } from "./dialogs/a3BabkaDialogs";
 import { orphanDialog } from "./dialogs/a7OrphanDialogs";
 import { tokensDialog } from "./dialogs/a6TokensDialogs";
-import { chestDialog } from "./dialogs/a8ChestDialogs";
-import { underAttackDialog } from "./dialogs/a9UnderAttackDialogs";
+import { chestDialog } from "./dialogs/a12ChestDialogs";
+import { underAttackDialog } from "./dialogs/a13UnderAttackDialogs";
 
 export const dialogs = [
   startDialog,

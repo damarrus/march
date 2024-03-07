@@ -32,7 +32,6 @@ export const ICON_QUESTION = '❓';
 export const ICON_DICE = '🎲';
 export const ICON_GOLD = '💰';
 export const ICON_ACTION = '🏃‍♀️';
-export const ICON_DECLINE = '❌';
 export const ICON_SLEEP = '💤';
 export const ICON_STRENGTH = '💪🏾';
 export const ICON_INTELLECT = '🧠';
@@ -56,9 +55,13 @@ export const ICON_WREATH = '🌺'
 export const ICON_HIT = '🤾‍♀️'
 export const ICON_SORRY = '😔'
 export const ICON_BACK = '🔙'
+export const ICON_AMULET = '🧿'
 
 
 export const ICON_WARRIOR = '🗡';
 export const ICON_CLERIC = '🕯';
 export const ICON_MAGE = '🪄';
 export const ICON_ROGUE = '🏹';
+
+export const ICON_APPLY = '✅';
+export const ICON_DECLINE = '❌';

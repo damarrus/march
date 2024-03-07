@@ -7,9 +7,9 @@ import { ICON_ACTION, ICON_INTELLECT, ICON_SLEEP, ICON_START, ICON_STEAL, ICON_S
 
 export const sleepDialog = new Dialog(
   "sleep",
-  "Решив что на сегодня достаточно приключений, ты отправляешь спать в приготовленный для тебя трактирщиком номер",
+  "Решив что на сегодня достаточно приключений, ты отправляешь спать в приготовленный для тебя трактирщиком номер.",
   [
-    new Phrase("Идти спать", "goSleep", ICON_SLEEP, [], [], "nextDay")
+    new Phrase("Идти спать", "goSleep", ICON_SLEEP, [], [ new Action([ new Effect(DIALOG_IMAGE, "=", "nikitos") ])], "nextDay")
   ]
 )
 
@@ -20,7 +20,7 @@ export const nextDayDialog = new Dialog(
     "- Эй, скорей! Все на праздник, будите родных, будите друзей! Будем праздновать скорей!",
   ],
   [
-    new Phrase("Продолжить", "continue", ICON_START, [], [], "gnome")
+    new Phrase("Продолжить", "continue", ICON_START, [], [new Action([ new Effect(DIALOG_IMAGE, "=", "gnom") ])], "gnome")
   ]
 )
 
@@ -43,7 +43,7 @@ export const gnomNextDialog = new Dialog(
     "Поняв, что спорить с дураком бесполезно, жители начинают разбредаться по уже приготовленным палаткам с конкурсами, где можно заработать призовые жетоны. Собравший больше всего жетонов, как пояснил староста, и будет объявлен победителем праздника.",
   ],
   [
-    new Phrase("Продолжить", "continue", ICON_START, [], [], "contestChoise")
+    new Phrase("Продолжить", "continue", ICON_START, [], [new Action([ new Effect(DIALOG_IMAGE, "=", "holiday_city") ])], "contestChoise")
   ]
 )
 

@@ -19,7 +19,7 @@ export const chestDialog = new Dialog(
       "chestAlarmOrGo"
     ),
     new Phrase(
-      "Тревога", "alarm", ICON_ALARM, 
+      "Поднять тревогу", "alarm", ICON_ALARM, 
       [], 
       [
         new Action([ new Effect(ACTION_MESSAGE, "=", "Стой, преступное отродье!") ])
@@ -48,55 +48,58 @@ export const chestDialog = new Dialog(
 
 export const underAttackDialog = new Dialog(
   "underAttack",
-  "Уже приближаясь к выходу из деревни, ты слышишь звуки боя. Повернув за угол, ты видишь, что прямо у ворот закованный в броню рыцарь с огромным щитом и молотом бьется против толпы каких-то вооруженных оборванцев.В ту же секунду начинают бить в набат - похоже на деревню напали разбойники. Один из нападавших замечает тебя и заорав что-то бессвязное бросается вперед, нацелив на тебя саблю.",
+  "Уже приближаясь к выходу из деревни, ты слышишь звуки боя. Повернув за угол, ты видишь, что прямо у ворот закованный в броню рыцарь с огромным щитом и молотом бьется против толпы каких-то вооруженных оборванцев. В ту же секунду начинают бить в набат - похоже на деревню напали разбойники. Один из нападавших замечает тебя и заорав что-то бессвязное бросается вперед, нацелив на тебя саблю.",
   [
     new Phrase(
       "Убежать", "leave", ICON_ACTION, 
       [], 
       [
-        new Action([ new Effect(ACTION_MESSAGE, "=", "Да ну нахер! Уворачиваясь от атак опасного дурака, ты бежишь в противоположную сторону, пока наконец не понимаешь, что от деревни ты уже далеко, а за тобой никто не гонится.") ])
+        new Action([ 
+          new Effect(ACTION_MESSAGE, "=", "Да ну нахер! Уворачиваясь от атак опасного дурака, ты бежишь в противоположную сторону, пока наконец не понимаешь, что от деревни ты уже далеко, а за тобой никто не гонится."),
+          new Effect(DIALOG_IMAGE, "=", "pobeg")
+        ])
       ],
-      "gameover"
+      "epilogue1"
     ),
     new Phrase(
       "Обезвредить", "stun", ICON_STRENGTH, 
       [], 
       [
-        new Action([ new Effect(ACTION_MESSAGE, "=", "Уклонившись, ты слегка бьешь его рукоятью меча/булавы/кинжала в висок и разбойник валится на землю.") ])
+        new Action([ new Effect(DIALOG_IMAGE, "=", "oleja"), new Effect(ACTION_MESSAGE, "=", "Уклонившись, ты слегка бьешь его рукоятью меча/булавы/кинжала в висок и разбойник валится на землю.") ])
       ],
-      "gameover"
+      "villageLeave"
     ),
     new Phrase(
       "Убивай-убиВАЙ-УБИВАЙ", "warrior", ICON_WARRIOR, 
       [ new Condition("heroClass", "==", "warrior") ], 
       [
-        new Action([ new Effect(ACTION_MESSAGE, "=", "Они знали на что шли. Выхватив оружие Рафаэлло ты атакуешь бандитов.") ])
+        new Action([ new Effect(DIALOG_IMAGE, "=", "oleja"),new Effect(ACTION_MESSAGE, "=", "Они знали на что шли. Выхватив Рафаэлло, ты атакуешь бандитов.") ])
       ],
-      "gameover"
+      "villageLeave"
     ),
     new Phrase(
-      "Шаман баяна!", "mage", ICON_MAGE, 
+      "Пустить огненный шар", "mage", ICON_MAGE, 
       [ new Condition("heroClass", "==", "mage") ], 
       [
-        new Action([ new Effect(ACTION_MESSAGE, "=", "Они знали на что шли. Летят в ебальник фаерболы.") ])
+        new Action([ new Effect(DIALOG_IMAGE, "=", "oleja"),new Effect(ACTION_MESSAGE, "=", "Они знали на что шли. Создав огненный шар, ты запускаешь его во врагов.") ])
       ],
-      "gameover"
+      "villageLeave"
     ),
     new Phrase(
       "ВО ИМЯ СВЕТА!", "cleric", ICON_CLERIC, 
       [ new Condition("heroClass", "==", "cleric") ], 
       [
-        new Action([ new Effect(ACTION_MESSAGE, "=", "Они знали на что шли. Божья кара и булава опускаются на головы противника.") ])
+        new Action([ new Effect(DIALOG_IMAGE, "=", "oleja"),new Effect(ACTION_MESSAGE, "=", "Они знали на что шли. Божья кара и булава опускаются на головы противников.") ])
       ],
-      "gameover"
+      "villageLeave"
     ),
     new Phrase(
-      "Ты об этом пожалеешь!", "rogue", ICON_ROGUE, 
+      "Расстрелять издалека", "rogue", ICON_ROGUE, 
       [ new Condition("heroClass", "==", "rogue") ], 
       [
-        new Action([ new Effect(ACTION_MESSAGE, "=", "Они знали на что шли. И они умерли, даже не успев моргнуть.") ])
+        new Action([ new Effect(DIALOG_IMAGE, "=", "oleja"),new Effect(ACTION_MESSAGE, "=", "Они знали на что шли. Спрятавшись в кустах, ты стреляешь в разбойников из арбалета. Но очень аккуратно, вдруг заметят…") ])
       ],
-      "gameover"
+      "villageLeave"
     ),
   ]
 )
@@ -118,7 +121,7 @@ export const stealChestDialog = new Dialog(
       "chestHelp"
     ),
     new Phrase(
-      "Тревога", "alarm", ICON_ALARM, 
+      "Поднять тревогу", "alarm", ICON_ALARM, 
       [], 
       [
         new Action([ new Effect(ACTION_MESSAGE, "=", "Стой, преступное отродье!") ])
@@ -135,11 +138,11 @@ export const stealChestDialog = new Dialog(
     ),
     new Phrase(
       "Уйти", "away", ICON_ACTION, 
-      [], 
+      [],
       [
-        new Action([ new Effect(ACTION_MESSAGE, "=", "Пахнет жареным, пора убираться из деревни.") ])
+        new Action([ new Effect(DIALOG_IMAGE, "=", "oleja"), new Effect(ACTION_MESSAGE, "=", "Пахнет жареным, пора убираться из деревни.") ])
       ],
-      "gameover"
+      "underAttack"
     ),
 ])
  

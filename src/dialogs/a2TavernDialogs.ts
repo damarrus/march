@@ -36,7 +36,7 @@ export const tavernDialog = new Dialog(
           new Effect(ACTION_MESSAGE, "=", `Винишка и сырную тарелку, пожалуйста;`),
           new Effect(DIALOG_IMAGE, "=", ""),
           new Effect("alcohol_effect", "+=", 1),
-          new Effect(DIALOG_IMAGE, "=", "wine"),
+          new Effect(DIALOG_IMAGE, "=", "vine"),
         ]),
       ],
       "exploreTavern",
@@ -85,7 +85,7 @@ export const tavernDialog = new Dialog(
     "exploreTavern", 
     [
       "Употребив еду и напитки по назначению, оглядываешь окружающих, с целью поинтересоваться, почему деревня так нарядно выглядит.",
-       "За соседним столиком сидит не очень опрятный мужчина, похоже это свинопас.",
+      "За соседним столиком сидит не очень опрятный мужчина, похоже это свинопас.",
     ], 
     [
     new Phrase(
@@ -108,21 +108,23 @@ export const tavernDialog = new Dialog(
     ], 
     [
     new Phrase(
-      "Остаться на праздник и поучаствовать в конкурсах", "party", ICON_PARTY + ICON_DANCE,
+      "Остаться на праздник и поучаствовать в конкурсах", "party", ICON_PARTY,
       [],
       [ 
         new Action([ 
             new Effect("tavern_party_effect", "=", 1),
+            new Effect(DIALOG_IMAGE, "=", "no_problem")
         ]),
       ],
       "babkaDialog",
     ),
     new Phrase(
-      "Пойти своей дорогой, как только рассветет", "away", ICON_WALKING + ICON_SUNRISE,
+      "Пойти своей дорогой, как только рассветет", "away", ICON_SUNRISE,
       [],
       [ 
         new Action([ 
             new Effect("tavern_away_effect", "=", 1),
+            new Effect(DIALOG_IMAGE, "=", "no_problem")
         ]),
       ],
       "babkaDialog",
@@ -134,7 +136,8 @@ export const tavernDialog = new Dialog(
       ],
       [ 
         new Action([ 
-            new Effect("steal_prize_effect", "=", 1),
+            // new Effect("steal_prize_effect", "=", 1),
+            new Effect(DIALOG_IMAGE, "=", "no_problem")
         ]),
       ],
       "babkaDialog",
@@ -144,7 +147,8 @@ export const tavernDialog = new Dialog(
       [],
       [ 
         new Action([ 
-            new Effect("tavern_settle_effect", "=", 1),
+            new Effect("tavern_settle_effect", "=", true),
+            new Effect(DIALOG_IMAGE, "=", "no_problem")
         ]),
       ],
       "babkaDialog",

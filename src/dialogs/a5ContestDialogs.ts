@@ -6,7 +6,7 @@ import { Effect } from "../entities/Effect";
 import { InputEffect } from "../entities/InputEffect";
 import { InputPhrase } from "../entities/InputPhrase";
 import { Phrase } from "../entities/Phrase";
-import { ICON_ACTION, ICON_HAMMER, ICON_INTELLECT, ICON_QUESTION, ICON_SLEEP, ICON_START, ICON_STEAL, ICON_STRENGTH, ICON_WARRIOR } from "../icons";
+import { ICON_ACTION, ICON_HAMMER, ICON_INTELLECT, ICON_PUNCH, ICON_QUESTION, ICON_SLEEP, ICON_START, ICON_STEAL, ICON_STRENGTH, ICON_TOKEN, ICON_WALKING, ICON_WARRIOR } from "../icons";
 
 export const contestChoiseDialog = new Dialog(
   "contestChoise",
@@ -15,35 +15,38 @@ export const contestChoiseDialog = new Dialog(
   ],
   [
 
-    new Phrase("Продолжу путь дальше", "continue1", ICON_ACTION, [ new Condition("doneContests", "==", 0) ], [], "underAttack"),
-    new Phrase("Иду к \"Силомеру\"", "strength1", ICON_STRENGTH, [ new Condition("doneContests", "==", 0) ], [], "strengthContest"),
-    new Phrase("Иду к \"Загадкам\"", "intellect1", ICON_INTELLECT, [ new Condition("doneContests", "==", 0) ], [], "intellectContest"),
+    new Phrase("Продолжу путь дальше", "continue1", ICON_ACTION, [ new Condition("doneContests", "==", 0) ], [ new Action([ new Effect(DIALOG_IMAGE, "=", "roguesatack") ])], "underAttack"),
+    new Phrase("Иду к \"Силомеру\"", "strength1", ICON_STRENGTH, [ new Condition("doneContests", "==", 0) ], [ new Action([ new Effect(DIALOG_IMAGE, "=", "silomer") ])], "strengthContest"),
+    new Phrase("Иду к \"Загадкам\"", "intellect1", ICON_INTELLECT, [ new Condition("doneContests", "==", 0) ], [ new Action([ new Effect(DIALOG_IMAGE, "=", "zagadochki") ]) ], "intellectContest"),
     new Phrase("Украду сундучок", "steal1", ICON_STEAL, [ new Condition("doneContests", "==", 0) ], 
     [ 
       new Action([ 
       new Effect("steal_prize_effect", "=", 1),
+      new Effect(DIALOG_IMAGE, "=", "stole_chest") 
       ]) 
     ], "stealChest"),
 
-    new Phrase("Пора в дорогу", "continue2", ICON_ACTION, [ new Condition("doneContests", "==", 1) ], [], "underAttack"),
-    new Phrase("Иду к \"Силомеру\"", "strength2", ICON_STRENGTH, [ new Condition("doneContests", "==", 1), new Condition("strengthContestDone", "==", false) ], [], "strengthContest"),
-    new Phrase("Иду к \"Загадкам\"", "intellect2", ICON_INTELLECT, [ new Condition("doneContests", "==", 1), new Condition("intellectContestDone", "==", false) ], [], "intellectContest"),
+    new Phrase("Пора в дорогу", "continue2", ICON_ACTION, [ new Condition("doneContests", "==", 1) ], [new Action([ new Effect(DIALOG_IMAGE, "=", "roguesatack") ])], "underAttack"),
+    new Phrase("Иду к \"Силомеру\"", "strength2", ICON_STRENGTH, [ new Condition("doneContests", "==", 1), new Condition("strengthContestDone", "==", false) ], [new Action([ new Effect(DIALOG_IMAGE, "=", "silomer") ])], "strengthContest"),
+    new Phrase("Иду к \"Загадкам\"", "intellect2", ICON_INTELLECT, [ new Condition("doneContests", "==", 1), new Condition("intellectContestDone", "==", false) ], [new Action([ new Effect(DIALOG_IMAGE, "=", "zagadochki") ])], "intellectContest"),
     new Phrase("Сундучок, жди меня", "steal2", ICON_STEAL, [ new Condition("doneContests", "==", 1) ], 
-    [ 
+    [
       new Action([ 
       new Effect("steal_prize_effect", "=", 1),
+      new Effect(DIALOG_IMAGE, "=", "stole_chest") 
       ]) 
     ], "stealChest"),
-    new Phrase("Побродить по площади", "tokens2", ICON_STEAL, [ new Condition("doneContests", "==", 1) ], [], "orphan"),
+    new Phrase("Побродить по площади", "tokens2", ICON_WALKING, [ new Condition("doneContests", "==", 1) ], [], "orphan"),
 
     new Phrase("Пора в дорогу", "continue3", ICON_ACTION, [ new Condition("doneContests", "==", 2) ], [], "underAttack"),
     new Phrase("А сундучок-то все стоит...", "steal3", ICON_STEAL, [ new Condition("doneContests", "==", 2) ], 
     [ 
       new Action([ 
       new Effect("steal_prize_effect", "=", 1),
+      new Effect(DIALOG_IMAGE, "=", "stole_chest") 
       ]) 
     ], "stealChest"),
-    new Phrase("Обменять жетоны", "tokens3", ICON_STEAL, [ new Condition("doneContests", "==", 2) ], [], "tokensChange"),
+    new Phrase("Обменять жетоны", "tokens3", ICON_TOKEN, [ new Condition("doneContests", "==", 2) ], [new Action([ new Effect(DIALOG_IMAGE, "=", "two_fathers") ])], "tokensChange"),
 
     new Phrase("Подойти к сироте", "orphan", ICON_ACTION, [ new Condition("orphanWait", "==", true), new Condition("orphanDone", "==", false), ], [], "orphan"),
 
@@ -55,7 +58,7 @@ export const strengthContestDialog = new Dialog(
   "Конкурс проводит местный кузнец Стэнтин, по прозвищу Конь. Не переставая вещать о том, что когда-нибудь общество сможет построить лучший мир где все равны, он поясняет правила конкурса - берешь здоровенный молот и чем сильнее ударишь по аппарату, тем выше взлетит грузик внутри него и тем больше призовых жетонов можно заработать.",
   [
     new Phrase(
-      "Ударить кулаком", "warriorHit", ICON_WARRIOR, 
+      "Ударить кулаком", "warriorHit", ICON_PUNCH, 
       [
         new Condition("heroClass","==", "warrior")
       ], 

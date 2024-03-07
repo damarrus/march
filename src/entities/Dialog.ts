@@ -7,7 +7,6 @@ import { InputPhrase } from "./InputPhrase";
 import { ACTION_MESSAGE, BUTTON_ICON, BUTTON_TEXT, DIALOG_IMAGE, DIALOG_MESSAGE } from "../config";
 import * as fs from 'fs';
 
-
 export class Dialog {
   public name: string;
   public textArray: string[];

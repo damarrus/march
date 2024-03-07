@@ -14,8 +14,9 @@ import { contestChoiseDialog, intellectContestDialog, intellectContestInputDialo
 import { babkaDialog, epicFailureDialog, failureDialog, halfFailureDialog, successDialog } from "./dialogs/a3BabkaDialogs";
 import { orphanDialog } from "./dialogs/a7OrphanDialogs";
 import { tokensDialog } from "./dialogs/a6TokensDialogs";
-import { chestDialog } from "./dialogs/a12ChestDialogs";
-import { underAttackDialog } from "./dialogs/a13UnderAttackDialogs";
+import { chestDialog, stealChestDialog, underAttackDialog } from "./dialogs/a12ChestDialogs";
+import { chestAlarmOrGoDialog, chestHelpDialog, chestLookDialog, ebkaClericDialog, ebkaMageDialog, ebkaRogueDialog, ebkaWarDialog } from "./dialogs/a13UnderAttackDialogs";
+import { thievActionAbuseDialog, thievAfterActionAbuseDialog, thievAfterPoisonGangDialog, thievFinalDialog, thievGiveUpDialog, thievGoAttackDialog, thievInviteGangDialog, thievOnAttackDialog, thievPathDialog, thievPoisonGangDialog } from "./dialogs/a15ThievPathDialogs";
 
 export const dialogs = [
   startDialog,
@@ -50,6 +51,24 @@ export const dialogs = [
 
   chestDialog,
   underAttackDialog,
+  stealChestDialog,
+  chestAlarmOrGoDialog,
+  chestLookDialog,
+  ebkaWarDialog,
+  ebkaClericDialog,
+  ebkaMageDialog,
+  ebkaRogueDialog,
+  thievPathDialog,
+  thievInviteGangDialog,
+  thievGiveUpDialog,
+  thievActionAbuseDialog,
+  thievAfterActionAbuseDialog,
+  thievPoisonGangDialog,
+  thievAfterPoisonGangDialog,
+  thievOnAttackDialog,
+  thievGoAttackDialog,
+  thievFinalDialog,
+  chestHelpDialog,
 
 
   gameOverDialog

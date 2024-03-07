@@ -8,7 +8,7 @@ import { ICON_ACTION, ICON_CLERIC, ICON_CLOCK, ICON_EYE, ICON_FIRE, ICON_FORK, I
 
 export const chestHelpDialog = new Dialog(
   "chestHelp",
-  " Мужики переглянувшись кивают тебе и жестами говорят ждать сигнала. Буквально через минуту, с другой стороны площади раздается громкий свист и несколько человек в толпе выхватывают оружие. В ту же секунду начинают бить в набат, а перепуганные жители спешат убраться с улицы - похоже на деревню напали разбойники.",
+  "Мужики переглянувшись кивают тебе и жестами говорят ждать сигнала. Буквально через минуту, с другой стороны площади раздается громкий свист и несколько человек в толпе выхватывают оружие. В ту же секунду начинают бить в набат, а перепуганные жители спешат убраться с улицы - похоже на деревню напали разбойники.",
   [
     new Phrase(
       "Воровская честь.", "aye", ICON_FORK + ICON_EYE, 
@@ -37,25 +37,25 @@ export const chestAlarmOrGoDialog = new Dialog(
   "Мужики, поняв что их заметили, выхватывают ножи и громко свистят. С другой стороны площади им отвечает такой же свист и еще несколько человек в толпе выхватывают оружие. В ту же секунду начинают бить в набат, а перепуганные жители спешат убраться с улицы - похоже на деревню напали разбойники.",
   [
     new Phrase(
-      "К бою", "leave", ICON_WARRIOR, 
+      "К бою", "leave1", ICON_WARRIOR, 
       [new Condition("heroClass", "==", "warrior")], 
       [],
       "ebkaWar"
     ),
     new Phrase(
-      "К бою", "leave", ICON_MAGE, 
+      "К бою", "leave2", ICON_MAGE, 
       [new Condition("heroClass", "==", "mage")], 
       [],
       "ebkaMage"
     ),
     new Phrase(
-      "К бою", "leave", ICON_ROGUE, 
+      "К бою", "leave3", ICON_ROGUE, 
       [new Condition("heroClass", "==", "rogue")], 
       [],
       "ebkaRogue"
     ),
     new Phrase(
-      "К бою", "leave", ICON_CLERIC, 
+      "К бою", "leave4", ICON_CLERIC, 
       [new Condition("heroClass", "==", "cleric")], 
       [],
       "ebkaCleric"
@@ -72,19 +72,19 @@ export const chestLookDialog = new Dialog(
   ],
   [
     new Phrase(
-      "К бою", "leave", ICON_WARRIOR, 
+      "К бою", "leave1", ICON_WARRIOR, 
       [new Condition("heroClass", "==", "warrior")], 
       [],
       "ebkaWar"
     ),
     new Phrase(
-      "К бою", "leave", ICON_MAGE, 
+      "К бою", "leave2", ICON_MAGE, 
       [new Condition("heroClass", "==", "mage")], 
       [],
       "ebkaMage"
     ),
     new Phrase(
-      "К бою", "leave", ICON_ROGUE, 
+      "К бою", "leave3", ICON_ROGUE, 
       [new Condition("heroClass", "==", "rogue")], 
       [],
       "ebkaRogue"

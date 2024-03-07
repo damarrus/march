@@ -159,13 +159,13 @@ export const thievAfterPoisonGangDialog = new Dialog(
       "Прихватить добро", "back", ICON_STEAL,
       [ new Condition("abuseKilled", "==", true)],
       [ new Action([ new Effect(ACTION_MESSAGE, "=", "...погрузить все добро в лагере на стоящих здесь лошадей и вернуться в деревню. Где тебя, без сомнения, наградят за уничтожение ужасного  Абьюза и его банды.") ])],
-      "epilogue"
+      "gameover"
     ),
     new Phrase(
       "Связать разбойников", "sleep", ICON_STEAL,
       [ new Condition("abuseStunned", "==", true)],
       [ new Action([ new Effect(ACTION_MESSAGE, "=", "...связать разбойников покрепче и послать за ополченцами и сэром Олэйджей Стеной. А уже они, без сомнения, наградят тебя за победу над ужасным  Абьюзом и его бандой.") ])],
-      "epilogue"
+      "gameover"
     ),
   ]
 );
@@ -242,13 +242,13 @@ export const thievFinalDialog = new Dialog(
       "Отпустить крестьянок", "back", ICON_STEAL,
       [ new Condition("abuseKilled", "==", true)],
       [ new Action([ new Effect(ACTION_MESSAGE, "=", "...отпустить крестьянок, прежде получив за них выкуп от деревни. Радостные разбойники славят хитрость и смекалку своей новой атаманши.") ])],
-      "epilogue"
+      "gameover"
     ),
     new Phrase(
       "Сдать властям Абьюза", "sleep", ICON_STEAL,
       [ new Condition("abuseStunned", "==", true)],
       [ new Action([ new Effect(ACTION_MESSAGE, "=", "...отпустить крестьянок, прежде получив за них выкуп от деревни, а также сдать Абьюза властям за вознаграждение. Радостные разбойники славят хитрость и смекалку своей новой атаманши.") ])],
-      "epilogue"
+      "gameover"
     ),
   ]
 );

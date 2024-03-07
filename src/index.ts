@@ -1,12 +1,13 @@
 import bot from "./bot";
 import { dialogs } from "./dialogs";
+import { Phrase } from "./entities/Phrase";
 import { UserController } from "./UserController";
 
 // TODO добавить проверку на то, что фразы разные
 dialogs.forEach(dialog => {
   let isError = false;
   let phrasesData : string[] = []
-  dialog.phrases.forEach(phrase => {
+  dialog.phrases.forEach((phrase: Phrase) => {
     if (phrasesData.find(data => data === phrase.buttonData)) {
       isError = true
       console.log(`${dialog.name}-${phrase.buttonData} => double phrase data`)

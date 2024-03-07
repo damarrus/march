@@ -7,7 +7,7 @@ import { Phrase } from "../entities/Phrase";
 import { ICON_ACTION, ICON_LOOK, ICON_ALARM, ICON_CLERIC, ICON_MAGE, ICON_ROGUE, ICON_STRENGTH, ICON_WARRIOR, ICON_WALKING, ICON_SHUSHING } from "../icons";
 
 export const chestDialog = new Dialog(
-  "chest",
+  "chest",//12.1
   "Оглядываясь в поисках других интересных занятий, ты вдруг видишь что у столика с сундучком ошиваются два неприятно выглядящих мужика. Один из них, встает прямо перед столом, загораживая его, а второй начинает что-то делать с замком.",
   [
     new Phrase(

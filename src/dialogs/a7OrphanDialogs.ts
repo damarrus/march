@@ -28,7 +28,7 @@ export const orphanDialog = new Dialog(
           new Effect(DIALOG_MESSAGE, "=", "Чем бы еще заняться?"),
         ])
       ],
-      "contestChoise"
+      "chest"
     ),
     new Phrase(
       `Дать 2${ICON_TOKEN} мальчику`, "2token", "",
@@ -44,7 +44,7 @@ export const orphanDialog = new Dialog(
           new Effect(DIALOG_MESSAGE, "=", "Чем бы еще заняться?")
         ])
       ],
-      "contestChoise"
+      "chest"
     ),
     new Phrase(
       `Дать 3${ICON_TOKEN} мальчику`, "3token", "",
@@ -60,7 +60,7 @@ export const orphanDialog = new Dialog(
           new Effect(DIALOG_MESSAGE, "=", "Чем бы еще заняться?"),
         ])
       ],
-      "contestChoise"
+      "chest"
     ),
     new Phrase(
       `Дать 4${ICON_TOKEN} мальчику`, "4token", "",
@@ -76,7 +76,7 @@ export const orphanDialog = new Dialog(
           new Effect(DIALOG_MESSAGE, "=", "Чем бы еще заняться?"),
         ])
       ],
-      "contestChoise"
+      "chest"
     ),
     new Phrase(
       `Дать 5${ICON_TOKEN} мальчику`, "5token", "",
@@ -92,7 +92,7 @@ export const orphanDialog = new Dialog(
           new Effect(DIALOG_MESSAGE, "=", "Чем бы еще заняться?")
         ])
       ],
-      "contestChoise"
+      "chest"
     ),
     new Phrase(
       `Отдать все ${ICON_TOKEN} мальчику`, "alltoken", "",
@@ -108,7 +108,7 @@ export const orphanDialog = new Dialog(
           new Effect(DIALOG_MESSAGE, "=", "Чем бы еще заняться?")
         ])
       ],
-      "contestChoise"
+      "chest"
     ),
     new Phrase(
       `Дать мальчику поджопник`, "hit", ICON_HIT,
@@ -123,7 +123,7 @@ export const orphanDialog = new Dialog(
 
         ])
       ],
-      "contestChoise"
+      "chest"
     ),
     new Phrase(
       `Вежливо отказать мальчику`, "sorry", ICON_SORRY,
@@ -137,7 +137,7 @@ export const orphanDialog = new Dialog(
           new Effect(DIALOG_MESSAGE, "=", "Чем бы еще заняться?")
         ])
       ],
-      "contestChoise"
+      "chest"
     ),
     new Phrase(
       `Вернуть покупки`, "refund", ICON_BACK,
@@ -191,7 +191,7 @@ export const orphanDialog = new Dialog(
           new Effect(DIALOG_MESSAGE, "=", "Чем бы еще заняться?")
         ])
       ],
-      "contestChoise"
+      "chest"
     ),
     new Phrase(
       "Съесть петушка", "eatCockerel", ICON_COCKEREL,
@@ -204,7 +204,7 @@ export const orphanDialog = new Dialog(
           new Effect(DIALOG_MESSAGE, "=", "Чем бы еще заняться?"),
         ])
       ],
-      "contestChoise"
+      "chest"
     ),
     new Phrase(
       "Купить и съесть петушка", "buyEatCockerel", ICON_COCKEREL,
@@ -217,7 +217,7 @@ export const orphanDialog = new Dialog(
           new Effect(DIALOG_MESSAGE, "=", "Чем бы еще заняться?"),
         ])
       ],
-      "contestChoise"
+      "chest"
     ),
     new Phrase(
       "Я скоро вернусь", "wait", ICON_ACTION,
@@ -228,7 +228,7 @@ export const orphanDialog = new Dialog(
           new Effect(DIALOG_MESSAGE, "=", "Чем бы еще заняться?"),
         ])
       ],
-      "contestChoise"
+      "chest"
     )
   ]
 )

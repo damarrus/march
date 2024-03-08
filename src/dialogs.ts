@@ -15,7 +15,7 @@ import { babkaDialog, epicFailureDialog, failureDialog, halfFailureDialog, succe
 import { orphanDialog } from "./dialogs/a7OrphanDialogs";
 import { tokensDialog } from "./dialogs/a6TokensDialogs";
 import { chestDialog, stealChestDialog, underAttackDialog } from "./dialogs/a12ChestDialogs";
-import { chestAlarmOrGoDialog, chestHelpDialog, chestLookDialog, ebkaClericDialog, ebkaMageDialog, ebkaRogueDialog, ebkaRogueDialog2, ebkaWarDialog } from "./dialogs/a13UnderAttackDialogs";
+import { chestAlarmOrGoDialog, chestHelpDialog, chestLookDialog, ebkaClericDialog, ebkaMageDialog, ebkaRogueDialog, ebkaWarDialog } from "./dialogs/a13UnderAttackDialogs";
 import { thievActionAbuseDialog, thievAfterActionAbuseDialog, thievAfterPoisonGangDialog, thievFinalDialog, thievGiveUpDialog, thievGoAttackDialog, thievInviteGangDialog, thievOnAttackDialog, thievPathDialog, thievPoisonGangDialog } from "./dialogs/a15ThievPathDialogs";
 import { epilogue1, epilogue2, epilogue3, epilogue4 } from "./dialogs/a17Epilogues";
 import { villageAfterDialog, villageAmuletAfter1Dialog, villageAmuletAfter2Dialog, villageAmuletDialog, villageCallAbuse2, villageCallAbuse3, villageCallAbuse4, villageCallAbuseCleric, villageCallAbuseDialog, villageCallAbuseMage, villageCallAbuseRogue, villageCallAbuseWarrior, villageHelpDialog, villageHide2Dialog, villageHideDialog, villageLeaveDialog, villageMestnieDialog, villagePalatkiDialog } from "./dialogs/a16VillagePathDialogs";
@@ -60,7 +60,6 @@ export const dialogs = [
   ebkaClericDialog,
   ebkaMageDialog,
   ebkaRogueDialog,
-  ebkaRogueDialog2,
   thievPathDialog,
   thievInviteGangDialog,
   thievGiveUpDialog,

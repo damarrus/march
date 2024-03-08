@@ -19,11 +19,11 @@ export const chestHelpDialog = new Dialog(
       "thievPath"
     ),
     new Phrase(
-      "Искупление.", "remorse", ICON_REMORSE, 
+      "Передумать", "remorse", ICON_REMORSE, 
       [], 
       [
         new Action([ 
-          new Effect(ACTION_MESSAGE, "=", "Ты чувствуешь, что поступаешь неправильно. Для совести ты была редким собеседником. Но ведь все еще можно изменить."),
+          new Effect(ACTION_MESSAGE, "=", "Ты чувствуешь, что помогать им себе дороже. Но ведь все еще можно изменить. Вокруг уже вовсю кипит бой. Ты думаешь что делать дальше?\n\nВокруг уже вовсю кипит бой. Ты думаешь что делать дальше?"),
           new Effect("remorse_effect", "=", 1)
         ]),        
       ],
@@ -198,19 +198,17 @@ export const ebkaRogueDialog = new Dialog(
       "Все твое теперь мое", "money_bag", ICON_MONEYBAG, 
       [
         // new Condition("steal_prize_effect", "==", 1),
-        // new Condition("remorse_effect", "==", 0),
+        new Condition("remorse_effect", "==", 0),
+        new Condition("moneySteal", "==", false),
       ], 
       [
-        new Action([ new Effect(ACTION_MESSAGE, "=", "Одним движением ты выхватываешь дымовую шашку и бросаешь ее на землю. Поднимается облако дыма, смешанное с дорожной пылью из-за дерущихся людей. Не теряя ни секунды,  ты подбегаешь к сундуку и сбиваешь непрочный замок рукоятью кинжала. Забрав лежащий там увесистый мешочек золотых монет, ты думаешь что делать дальше? Вокруг все еще продолжается драка.") ])
+        new Action([ 
+          new Effect("moneySteal", "=", true),
+          new Effect(ACTION_MESSAGE, "=", "Одним движением ты выхватываешь дымовую шашку и бросаешь ее на землю. Поднимается облако дыма, смешанное с дорожной пылью из-за дерущихся людей. Не теряя ни секунды,  ты подбегаешь к сундуку и сбиваешь непрочный замок рукоятью кинжала. Забрав лежащий там увесистый мешочек золотых монет, ты думаешь что делать дальше? Вокруг все еще продолжается драка.") 
+        ])
       ],
-      "ebkaRogue2"
-    ),   
-])
-
-export const ebkaRogueDialog2 = new Dialog(
-  "ebkaRogue2", 
-  [], 
-  [   
+      "ebkaRogue"
+    ),
     new Phrase(
       "Удар из тени", "knife", ICON_KNIFE, 
       [], 
@@ -228,4 +226,5 @@ export const ebkaRogueDialog2 = new Dialog(
       "epilogue1"
     ),  
 ])
+
 

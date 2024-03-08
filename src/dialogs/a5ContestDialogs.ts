@@ -36,7 +36,7 @@ export const contestChoiseDialog = new Dialog(
       new Effect(DIALOG_IMAGE, "=", "stole_chest") 
       ]) 
     ], "stealChest"),
-    new Phrase("Побродить по площади", "tokens2", ICON_WALKING, [ new Condition("doneContests", "==", 1) ], [], "orphan"),
+    new Phrase("Побродить по площади", "tokens2", ICON_WALKING, [ new Condition("doneContests", "==", 1) ], [ new Action([ new Effect(DIALOG_IMAGE, "=", "two_fathers") ]) ], "tokensChange"),
 
     new Phrase("Пора в дорогу", "continue3", ICON_ACTION, [ new Condition("doneContests", "==", 2) ], [], "underAttack"),
     new Phrase("А сундучок-то все стоит...", "steal3", ICON_STEAL, [ new Condition("doneContests", "==", 2) ], 

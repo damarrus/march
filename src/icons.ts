@@ -56,7 +56,7 @@ export const ICON_HIT = '🤾‍♀️'
 export const ICON_SORRY = '😔'
 export const ICON_BACK = '🔙'
 export const ICON_AMULET = '🧿'
-
+export const ICON_MUSIC = '🎵'
 
 export const ICON_WARRIOR = '🗡';
 export const ICON_CLERIC = '🕯';

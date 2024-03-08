@@ -105,7 +105,7 @@ export const tokensDialog = new Dialog(
     new Phrase( 
       `Уйти`, "orphan", ICON_ACTION, 
       [ new Condition("orphanMeet", "==", false) ], 
-      [], 
+      [ new Action([ new Effect("orphanMeet", "=", true) ])], 
       "orphan" 
     ),
     new Phrase( 

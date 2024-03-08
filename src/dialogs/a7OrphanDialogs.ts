@@ -168,7 +168,7 @@ export const orphanDialog = new Dialog(
         ),
         new Action(
           [ 
-            new Effect("itemWreath", "+=", 2), 
+            new Effect("contestTokens", "+=", 2), 
             new Effect("itemWreath", "=", false),
           ],
           [ new Condition("itemWreath", "==", true) ]
@@ -208,10 +208,9 @@ export const orphanDialog = new Dialog(
     ),
     new Phrase(
       "Договориться со священником", "otec", ICON_PRAY,
-      [ new Condition("itemCockerel", "==", false), new Condition("contestTokens", ">=", 3) ],
+      [ new Condition("heroClass", "==", "cleric") ],
       [
         new Action([ 
-          new Effect("contestTokens", "-=", 3),
           new Effect("orphanDone", "=", true),
           new Effect(ACTION_MESSAGE, "=", "Несчастное дитя! Возможно получится договориться, чтобы ему отдали леденец задаром.\n\nВы договориваетесь со священником и он соглашается отдать петушка малышу.\n\n- Спасибо тетенька!"),
           new Effect(DIALOG_MESSAGE, "=", "Чем бы еще заняться?"),

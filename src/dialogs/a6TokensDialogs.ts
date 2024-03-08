@@ -20,7 +20,7 @@ export const tokensDialog = new Dialog(
   [
     new Phrase(
       `Зелье лечения 7${ICON_TOKEN}`, "healingPotion", ICON_POTION,
-      [],
+      [ new Condition("itemHealingPotion", "==", false) ],
       [
         new Action(
           [
@@ -41,7 +41,7 @@ export const tokensDialog = new Dialog(
     ),
     new Phrase(
       `Плюшевый медвежонок 5${ICON_TOKEN}`, "bear", ICON_BEAR,
-      [],
+      [ new Condition("itemBear", "==", false) ],
       [
         new Action(
           [
@@ -62,7 +62,7 @@ export const tokensDialog = new Dialog(
     ),
     new Phrase(
       `Леденец \"Сладкий петушок\" 3${ICON_TOKEN}`, "cockerel", ICON_COCKEREL,
-      [],
+      [ new Condition("itemCockerel", "==", false) ],
       [
         new Action(
           [
@@ -83,7 +83,7 @@ export const tokensDialog = new Dialog(
     ),
     new Phrase(
       `Венок из полевых цветов 2${ICON_TOKEN}`, "wreath", ICON_WREATH,
-      [],
+      [ new Condition("itemWreath", "==", false) ],
       [
         new Action(
           [
